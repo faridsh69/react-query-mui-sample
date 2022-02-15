@@ -39,6 +39,10 @@ const MaterialProvider: FC = ({ children }) => {
             '& a': {
               textDecoration: 'none',
               display: 'block'
+            },
+
+            '& strong': {
+              color: 'var(--color-secondary-dark)'
             }
           },
           body: {
@@ -66,13 +70,19 @@ const MaterialProvider: FC = ({ children }) => {
             fontWeight: 500,
             display: 'inline-block',
             color: 'var(--color-secondary-main)'
+          },
+          subtitle1: {
+            fontWeight: 500,
+            display: 'inline-block',
+            fontSize: '1.4rem',
+            color: 'var(--color-secondary-main)'
           }
         }
       },
       MuiButton: {
         styleOverrides: {
           root: {
-            fontSize: '1.8rem',
+            fontSize: '1.6rem',
             fontFamily: 'Montserrat',
             textTransform: 'initial',
             boxShadow: 'none',
@@ -84,6 +94,25 @@ const MaterialProvider: FC = ({ children }) => {
             '&:hover': {
               borderWidth: 2
             }
+          }
+        }
+      },
+      MuiAvatar: {
+        styleOverrides: {
+          root: {
+            width: '4.6rem',
+            height: '4.6rem'
+          }
+        }
+      },
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            padding: '0 0.5rem',
+            borderRadius: '2.9rem'
+          },
+          label: {
+            fontSize: '1.4rem'
           }
         }
       },
