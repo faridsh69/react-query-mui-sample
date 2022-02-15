@@ -40,7 +40,7 @@ export const useStyles = makeStyles<void, 'heading'>()((_theme, _params, classes
       color: 'inherit'
     },
 
-    '&:first-child': {
+    '&:first-of-type': {
       minWidth: '26rem'
     },
 
