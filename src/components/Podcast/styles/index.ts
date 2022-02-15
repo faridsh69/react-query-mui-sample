@@ -28,6 +28,14 @@ export const useStyles = makeStyles()(() => ({
   },
   infoBox: {
     position: 'relative',
-    padding: '5rem 14rem 0 3.3rem'
+    padding: '5rem 14rem 0 3.3rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  },
+  tBtn: {
+    padding: '1.6rem 1.8rem',
+    maxHeight: '5.1rem',
+    marginTop: '3rem'
   }
 }));
