@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -80,6 +81,19 @@ const Podcast: FC<PodcastProps> = () => {
         <Typography variant="subtitle1">
           2 Seasons • 88 Episodes • Weekly • V+ New Episodes First • 1,362 Followers
         </Typography>
+
+        <Stack direction="row" spacing={1} className={classes.cta}>
+          <Button variant="contained">Follow</Button>
+          <IconButton>
+            <SVG id="like" />
+          </IconButton>
+          <IconButton>
+            <SVG id="share" />
+          </IconButton>
+          <IconButton>
+            <SVG id="more" />
+          </IconButton>
+        </Stack>
       </div>
     </div>
   );

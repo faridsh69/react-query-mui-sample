@@ -28,7 +28,8 @@ export const useStyles = makeStyles()(() => ({
   },
   infoBox: {
     position: 'relative',
-    padding: '5rem 14rem 0 3.3rem',
+    padding: '5rem 0 0 3.3rem',
+    marginRight: '14rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start'
@@ -37,5 +38,25 @@ export const useStyles = makeStyles()(() => ({
     padding: '1.6rem 1.8rem',
     maxHeight: '5.1rem',
     marginTop: '3rem'
+  },
+  cta: {
+    position: 'absolute',
+    bottom: '1rem',
+    right: 0,
+
+    '& > button': {
+      backgroundColor: 'var(--color-white)',
+      borderRadius: 0,
+      fontSize: '1.4rem',
+      color: 'var(--color-secondary-main)',
+      fontWeight: 700,
+      maxHeight: '3.7rem',
+      minWidth: '4.3rem',
+
+      '&:hover': {
+        backgroundColor: 'var(--color-white)',
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px'
+      }
+    }
   }
 }));
