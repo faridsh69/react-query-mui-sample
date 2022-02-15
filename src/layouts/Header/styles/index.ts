@@ -9,12 +9,22 @@ export const useStyles = makeStyles()(() => ({
     left: 0,
     right: 0,
     top: 0,
-    zIndex: 100
+    zIndex: 100,
+
+    '& button': {
+      fontSize: '1.8rem'
+    }
   },
-  figure: {
+  logo: {
     width: '20.7rem',
-    height: '6.4rem',
-    position: 'relative'
+    height: '6.1rem',
+    marginRight: '4rem',
+    transform: 'translateY(1rem)',
+
+    '& > svg': {
+      width: '100%',
+      height: '100%'
+    }
   },
   link: {
     textDecoration: 'none',
@@ -27,10 +37,6 @@ export const useStyles = makeStyles()(() => ({
     '&:hover': {
       color: 'var(--color-black)',
       opacity: 1
-    },
-
-    '&:first-of-type': {
-      marginLeft: '4rem'
     },
 
     '& > sup': {

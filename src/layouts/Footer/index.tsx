@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -22,9 +21,7 @@ const Footer: FC = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes.box}>
-        <figure className={classes.figure}>
-          <Image src="/images/logo-white.png" alt="viral-tribe-logo" layout="fill" />
-        </figure>
+        <SVG id="logo-white" className={classes.logo} />
 
         <Typography>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, officiis autem possimus

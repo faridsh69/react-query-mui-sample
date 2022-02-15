@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -13,9 +12,11 @@ const Header: FC = () => {
 
   return (
     <header className={classes.header}>
-      <figure className={classes.figure}>
-        <Image priority src="/images/logo-black.png" alt="viral-tribe-logo" layout="fill" />
-      </figure>
+      <Link href="/">
+        <a className={classes.logo}>
+          <SVG id="logo-black" />
+        </a>
+      </Link>
 
       <Link href="/">
         <a className={classes.link}>Shows</a>

@@ -23,10 +23,9 @@ export const useStyles = makeStyles<void, 'heading'>()((_theme, _params, classes
       opacity: 1
     }
   },
-  figure: {
+  logo: {
     width: '13.2rem',
     height: '3.5rem',
-    position: 'relative',
     marginBottom: '2.4rem',
     marginTop: '-1.25rem'
   },
