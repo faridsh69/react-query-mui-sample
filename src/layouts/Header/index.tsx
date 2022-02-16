@@ -1,59 +1,69 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 
 import { SVG } from '@assets/icons/svgIcons';
+import { useDialog } from '@hooks/useDialog';
 import SearchBox from '@components/SearchBox';
-import Backdrop from '@components/Backdrop';
+import SignUpLogin, { AuthType } from '@components/SignUpLogin';
 import { useStyles } from './styles';
 
 const Header: FC = () => {
-  const [open, setOpen] = useState(false);
   const { classes } = useStyles();
+  const [openDialog] = useDialog();
 
   return (
-    <>
-      <header className={classes.header}>
-        <Link href="/">
-          <a className={classes.logo}>
-            <SVG id="logo-black" />
-          </a>
-        </Link>
+    <header className={classes.header}>
+      <Link href="/">
+        <a className={classes.logo}>
+          <SVG id="logo-black" />
+        </a>
+      </Link>
 
-        <Link href="/">
-          <a className={classes.link}>Shows</a>
-        </Link>
-        <Link href="/">
-          <a className={classes.link}>
-            Viral <sup>+</sup>
-          </a>
-        </Link>
-        <Link href="/">
-          <a className={classes.link}>Leaderboards</a>
-        </Link>
+      <Link href="/">
+        <a className={classes.link}>Shows</a>
+      </Link>
+      <Link href="/">
+        <a className={classes.link}>
+          Viral <sup>+</sup>
+        </a>
+      </Link>
+      <Link href="/">
+        <a className={classes.link}>Leaderboards</a>
+      </Link>
 
-        <Stack spacing={2} direction="row" sx={{ marginLeft: 'auto' }}>
-          <Button variant="outlined" color="secondary">
-            Sign in
-          </Button>
-          <Button variant="contained">Join</Button>
+      <Stack spacing={2} direction="row" sx={{ marginLeft: 'auto' }}>
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={openDialog.bind(null, {
+            backdrop: 'light',
+            content: <SignUpLogin type={AuthType.LOGIN} />
+          })}
+        >
+          Sign in
+        </Button>
+        <Button
+          variant="contained"
+          onClick={openDialog.bind(null, {
+            backdrop: 'light',
+            content: <SignUpLogin type={AuthType.REGISTER} />
+          })}
+        >
+          Join
+        </Button>
 
-          <IconButton onClick={setOpen.bind(null, true)}>
-            <SVG id="search" />
-          </IconButton>
+        <IconButton onClick={openDialog.bind(null, { backdrop: 'dark', content: <SearchBox /> })}>
+          <SVG id="search" />
+        </IconButton>
 
-          <IconButton>
-            <SVG id="menu" />
-          </IconButton>
-        </Stack>
-      </header>
-
-      <Backdrop variant="dark" open={open} handleClose={setOpen.bind(null, false)}>
-        <SearchBox />
-      </Backdrop>
-    </>
+        <IconButton>
+          <SVG id="menu" />
+        </IconButton>
+      </Stack>
+    </header>
   );
 };
 
