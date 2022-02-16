@@ -8,6 +8,7 @@ import { SVG } from '@assets/icons/svgIcons';
 import { useDialog } from '@hooks/useDialog';
 import SearchBox from '@components/SearchBox';
 import SignUpLogin, { AuthType } from '@components/SignUpLogin';
+import MenuButton from './MenuButton';
 import { useStyles } from './styles';
 
 const Header: FC = () => {
@@ -59,9 +60,7 @@ const Header: FC = () => {
           <SVG id="search" />
         </IconButton>
 
-        <IconButton>
-          <SVG id="menu" />
-        </IconButton>
+        <MenuButton />
       </Stack>
     </header>
   );
