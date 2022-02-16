@@ -11,9 +11,7 @@ import Chip from '@mui/material/Chip';
 import { SVG } from '@assets/icons/svgIcons';
 import { useStyles } from './styles';
 
-interface PodcastProps {}
-
-const Podcast: FC<PodcastProps> = () => {
+const Podcast: FC = () => {
   const { classes } = useStyles();
 
   return (
