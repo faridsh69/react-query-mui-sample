@@ -105,6 +105,23 @@ const MaterialProvider: FC = ({ children }) => {
           }
         }
       },
+      MuiBackdrop: {
+        styleOverrides: {
+          root: {
+            zIndex: 9999,
+
+            '&.dark': {
+              backdropFilter: 'blur(1rem)',
+              background: 'rgba(38, 30, 31, 0.8)'
+            },
+
+            '&.light': {
+              backdropFilter: 'blur(0.5rem)',
+              background: 'rgba(255, 248, 239, 0.8)'
+            }
+          }
+        }
+      },
       MuiChip: {
         styleOverrides: {
           root: {

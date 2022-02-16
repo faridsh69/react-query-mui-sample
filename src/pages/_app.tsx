@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 
 import { createEmotionCache } from '@utils/helpers';
-import MaterialProvider from '@components/HOC/MaterialUI';
+import MuiProvider from '@contexts/MuiContext';
 import MainLayout from '@layouts/index';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -21,11 +21,11 @@ function MyApp(props: MyAppProps) {
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
-      <MaterialProvider>
+      <MuiProvider>
         <MainLayout>
           <Component {...pageProps} />
         </MainLayout>
-      </MaterialProvider>
+      </MuiProvider>
     </CacheProvider>
   );
 }
