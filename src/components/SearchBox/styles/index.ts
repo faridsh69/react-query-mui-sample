@@ -3,7 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 export const useStyles = makeStyles()(() => ({
   input: {
     width: '81.2rem',
-    height: '6rem',
+    alignSelf: 'stretch',
     backgroundColor: '#FFFFFF26',
 
     '& .MuiInputAdornment-root': {
@@ -31,5 +31,10 @@ export const useStyles = makeStyles()(() => ({
         opacity: 1
       }
     }
+  },
+  fBtn: {
+    borderRadius: 0,
+    width: '7.6rem',
+    height: '100%'
   }
 }));

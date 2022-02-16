@@ -12,7 +12,7 @@ const SearchBox: FC = () => {
   const { classes } = useStyles();
 
   return (
-    <Stack spacing={2} direction="row" alignItems="center">
+    <Stack spacing={2} direction="row" alignItems="center" sx={{ height: '6rem' }}>
       <Typography sx={{ color: 'var(--color-white)', fontSize: '3rem', marginRight: '2rem' }}>
         Search
       </Typography>
@@ -28,12 +28,8 @@ const SearchBox: FC = () => {
         }}
       />
 
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{ alignSelf: 'stretch', borderRadius: 0, width: '7.6rem' }}
-      >
-        <SVG id="menu" color="var(--color-white)" />
+      <Button variant="contained" color="primary" className={classes.fBtn}>
+        <SVG id="filter" color="var(--color-white)" />
       </Button>
     </Stack>
   );
