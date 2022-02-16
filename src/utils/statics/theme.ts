@@ -144,6 +144,28 @@ export const theme = createTheme({
         }
       }
     },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          '&.MuiPaper-root': {
+            borderRadius: 0,
+            boxShadow: '0px 0px 30px #00000029'
+          }
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontSize: '2rem',
+          fontFamily: 'Montserrat',
+          fontWeight: 500,
+          color: 'var(--color-secondary-main)',
+          paddingLeft: '2rem',
+          paddingRight: '2rem'
+        }
+      }
+    },
     MuiDialog: {
       styleOverrides: {
         paper: {
