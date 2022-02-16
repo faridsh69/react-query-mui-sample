@@ -25,6 +25,8 @@ export const theme = createTheme({
 
         html: {
           fontSize: '62.5%',
+          overflowY: 'auto',
+          overflowX: 'hidden',
 
           '& *': {
             margin: 0,
@@ -46,6 +48,7 @@ export const theme = createTheme({
           fontSize: '1.5rem',
           fontFamily: 'Montserrat',
           color: 'var(--color-secondary-dark)',
+          padding: '0 !important',
           fontWeight: 500,
           lineHeight: 1.6
         }
@@ -98,6 +101,15 @@ export const theme = createTheme({
         root: {
           width: '4.6rem',
           height: '4.6rem'
+        }
+      }
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          background: 'transparent',
+          boxShadow: 'none',
+          maxWidth: '100%'
         }
       }
     },
