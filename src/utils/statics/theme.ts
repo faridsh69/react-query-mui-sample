@@ -59,6 +59,7 @@ export const theme = createTheme({
         root: {
           fontSize: '1.6rem',
           fontFamily: 'inherit',
+          color: 'var(--color-secondary-dark)',
           lineHeight: 1.6
         },
         h1: {
@@ -75,6 +76,35 @@ export const theme = createTheme({
           display: 'inline-block',
           fontSize: '1.4rem',
           color: 'var(--color-secondary-main)'
+        },
+        subtitle2: {
+          fontWeight: 400,
+          display: 'inline-block',
+          fontSize: '1.4rem',
+          color: 'var(--color-secondary-dark)'
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        input: {
+          fontFamily: 'Montserrat',
+          fontSize: '1.6rem',
+          fontWeight: 500,
+          color: 'var(--color-secondary-main)',
+
+          '&::placeholder': {
+            fontSize: '1.6rem',
+            opacity: 1
+          }
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderWidth: 2,
+          borderColor: 'var(--color-secondary-main)'
         }
       }
     },
@@ -85,7 +115,17 @@ export const theme = createTheme({
           fontFamily: 'Montserrat',
           textTransform: 'initial',
           boxShadow: 'none',
-          borderRadius: 5
+          borderRadius: 5,
+          height: '5rem',
+
+          "&[aria-label='underline']": {
+            fontSize: 'inherit',
+            textDecoration: 'underline',
+            height: 'auto',
+            padding: 0,
+            fontWeight: 'inherit',
+            color: 'inherit'
+          }
         },
         outlined: {
           borderWidth: 2,
@@ -109,7 +149,18 @@ export const theme = createTheme({
         paper: {
           background: 'transparent',
           boxShadow: 'none',
-          maxWidth: '100%'
+          maxWidth: '100%',
+          maxHeight: '100%',
+          margin: 0
+        }
+      }
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Montserrat',
+          textTransform: 'initial',
+          fontWeight: 400
         }
       }
     },
