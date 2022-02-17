@@ -30,12 +30,12 @@ const MenuButton: FC = () => {
         anchorOrigin={{ horizontal: 'right', vertical: 70 }}
       >
         <Link passHref href="/for-creators">
-          <MenuItem component="a" onClick={handleClose}>
+          <MenuItem className="ft-lg" component="a" onClick={handleClose}>
             For Creators
           </MenuItem>
         </Link>
         <Link passHref href="/for-sponsors">
-          <MenuItem component="a" onClick={handleClose}>
+          <MenuItem className="ft-lg" component="a" onClick={handleClose}>
             For Sponsors
           </MenuItem>
         </Link>

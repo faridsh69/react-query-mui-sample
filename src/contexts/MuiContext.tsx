@@ -56,6 +56,9 @@ const MaterialProvider: FC = ({ children }) => {
           strong: {
             color: 'var(--color-secondary-dark)'
           },
+          figure: {
+            position: 'relative'
+          },
 
           '.padding': {
             paddingRight: '14rem',

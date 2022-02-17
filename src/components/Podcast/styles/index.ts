@@ -9,6 +9,7 @@ export const useStyles = makeStyles()(() => ({
     backgroundSize: '100%',
     backgroundPosition: '100% 55%',
     paddingLeft: '3rem',
+    paddingRight: '14rem',
     display: 'flex'
   },
   filter: {
@@ -29,7 +30,7 @@ export const useStyles = makeStyles()(() => ({
   infoBox: {
     position: 'relative',
     padding: '5rem 0 0 3.3rem',
-    marginRight: '14rem',
+    alignSelf: 'flex-start',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start'
@@ -37,14 +38,16 @@ export const useStyles = makeStyles()(() => ({
   tBtn: {
     padding: '1.6rem 1.8rem',
     maxHeight: '5.1rem',
-    marginTop: '3rem'
+    marginTop: '2rem'
   },
   cta: {
     position: 'absolute',
-    bottom: '1rem',
+    bottom: 0,
+    left: 0,
     right: 0,
+    justifyContent: 'space-between',
 
-    '& > button': {
+    '& > div:last-child > button': {
       backgroundColor: 'var(--color-white)',
       borderRadius: 0,
       fontSize: '1.4rem',

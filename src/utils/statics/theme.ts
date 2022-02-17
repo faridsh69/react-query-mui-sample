@@ -14,6 +14,10 @@ export const theme = createTheme({
           fontSize: '4.9rem',
           fontWeight: 500
         },
+        h2: {
+          fontSize: '3rem',
+          fontWeight: 500
+        },
         caption: {
           fontWeight: 500,
           display: 'inline-block',
@@ -70,7 +74,8 @@ export const theme = createTheme({
             fontSize: 'inherit',
             textDecoration: 'underline',
             height: 'auto',
-            padding: 0,
+            paddingRight: 0,
+            paddingLeft: 0,
             fontWeight: 'inherit',
             color: 'inherit'
           }
@@ -88,7 +93,12 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           width: '4.6rem',
-          height: '4.6rem'
+          height: '4.6rem',
+
+          '&.md': {
+            width: '4.2rem',
+            height: '4.2rem'
+          }
         }
       }
     },
@@ -105,12 +115,16 @@ export const theme = createTheme({
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          fontSize: '2rem',
+          fontSize: '1.6rem',
           fontFamily: 'Montserrat',
           fontWeight: 500,
           color: 'var(--color-secondary-main)',
           paddingLeft: '2rem',
-          paddingRight: '2rem'
+          paddingRight: '2rem',
+
+          '&.ft-lg': {
+            fontSize: '2rem'
+          }
         }
       }
     },
@@ -132,6 +146,35 @@ export const theme = createTheme({
           textTransform: 'initial',
           fontSize: '1.6rem',
           fontWeight: 400
+        }
+      }
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          paddingLeft: 15,
+          paddingTop: 11,
+          paddingBottom: 11,
+          display: 'flex',
+          alignItems: 'center',
+
+          '& ~ svg': {
+            position: 'absolute',
+            right: 20,
+            zIndex: -1
+          }
+        }
+      }
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          '&.lg': {
+            minWidth: '26rem'
+          },
+          '&.md': {
+            minWidth: '16.8rem'
+          }
         }
       }
     },
@@ -160,6 +203,14 @@ export const theme = createTheme({
         },
         label: {
           fontSize: '1.4rem'
+        }
+      }
+    },
+    MuiBadge: {
+      styleOverrides: {
+        badge: {
+          fontSize: '1.4rem',
+          fontFamily: 'Montserrat'
         }
       }
     },

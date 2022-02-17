@@ -14,7 +14,7 @@ const Login: FC<LoginProps> = ({ handleSwitch }) => {
     <>
       <Typography component="div">
         <span>Login to your account, new to Viral Tribe? Create an&nbsp;</span>
-        <Button aria-label="underline" onClick={handleSwitch}>
+        <Button aria-label="underline" sx={{ padding: 0 }} onClick={handleSwitch}>
           account.
         </Button>
       </Typography>

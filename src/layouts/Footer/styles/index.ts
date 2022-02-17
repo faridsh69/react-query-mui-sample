@@ -16,7 +16,8 @@ export const useStyles = makeStyles<void, 'heading'>()((_theme, _params, classes
   heading: {
     textTransform: 'uppercase',
     fontWeight: 700,
-    marginBottom: '2rem'
+    marginBottom: '2rem',
+    color: 'inherit'
   },
   link: {
     '&:hover': {
