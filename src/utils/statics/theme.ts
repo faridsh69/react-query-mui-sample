@@ -69,6 +69,11 @@ export const theme = createTheme({
           boxShadow: 'none',
           borderRadius: 5,
           height: '5rem',
+          borderColor: 'currentColor',
+
+          '&:hover': {
+            borderColor: 'currentColor'
+          },
 
           "&[aria-label='underline']": {
             fontSize: 'inherit',
