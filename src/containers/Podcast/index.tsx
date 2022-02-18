@@ -13,7 +13,7 @@ import Tabs from './Tabs';
 import PodcastPanel from './Panel';
 import { useStyles } from './styles';
 
-const Podcast: FC = () => {
+const PodcastContainer: FC = () => {
   const { classes } = useStyles();
 
   return (
@@ -107,4 +107,4 @@ const Podcast: FC = () => {
   );
 };
 
-export default Podcast;
+export default PodcastContainer;

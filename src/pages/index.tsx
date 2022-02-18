@@ -1,7 +1,5 @@
 import type { NextPage } from 'next';
 
-import Podcast from '@components/Podcast';
+const HomePage: NextPage = () => <h1>Home Page</h1>;
 
-const Home: NextPage = () => <Podcast />;
-
-export default Home;
+export default HomePage;
