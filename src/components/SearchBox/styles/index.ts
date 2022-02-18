@@ -1,8 +1,25 @@
 import { makeStyles } from 'tss-react/mui';
+import { Color } from '@custom-types/general-types';
 
 export const useStyles = makeStyles()(() => ({
+  root: {
+    height: '6rem',
+    minWidth: '95rem',
+    width: '100%',
+
+    '&.light': {
+      color: Color.WHITE
+    },
+    '&.dark': {
+      color: Color.SEC_DARK
+    }
+  },
+  label: {
+    fontSize: '3rem',
+    color: 'inherit'
+  },
   input: {
-    width: '81.2rem',
+    width: '100%',
     alignSelf: 'stretch',
     backgroundColor: '#FFFFFF26',
 
@@ -16,20 +33,35 @@ export const useStyles = makeStyles()(() => ({
 
     '& .MuiOutlinedInput-notchedOutline': {
       borderWidth: '2px',
-      borderColor: 'var(--color-white)'
+      borderColor: 'currentColor'
     },
 
-    '&:hover .MuiOutlinedInput-notchedOutline': {
-      borderColor: 'var(--color-white)'
+    '&.dark .MuiOutlinedInput-notchedOutline': {
+      borderColor: Color.SEC_DARK
+    },
+    '&.light .MuiOutlinedInput-notchedOutline': {
+      borderColor: Color.WHITE
+    },
+
+    '&.light:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: Color.WHITE
+    },
+    '&.dark:hover .MuiOutlinedInput-notchedOutline': {
+      borderColor: Color.SEC_DARK
     },
 
     '& input': {
-      color: 'var(--color-white)',
       fontSize: '1.8rem',
 
       '&::placeholder': {
         opacity: 1
       }
+    },
+    '&.light input': {
+      color: Color.WHITE
+    },
+    '&.dark input': {
+      color: Color.SEC_DARK
     }
   },
   fBtn: {
