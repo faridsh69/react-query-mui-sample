@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
 
-const ShowsPage: NextPage = () => <h1>Shows Page</h1>;
+import ShowsContainer from '@containers/Shows';
+
+const ShowsPage: NextPage = () => <ShowsContainer />;
 
 export default ShowsPage;
