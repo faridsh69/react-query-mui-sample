@@ -23,15 +23,15 @@ const Header: FC = () => {
         </a>
       </Link>
 
-      <Link href="/">
+      <Link href="/shows">
         <a className={classes.link}>Shows</a>
       </Link>
-      <Link href="/">
+      <Link href="/viral-plus">
         <a className={classes.link}>
           Viral <sup>+</sup>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/leaderboards">
         <a className={classes.link}>Leaderboards</a>
       </Link>
 

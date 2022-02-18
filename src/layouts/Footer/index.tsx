@@ -37,22 +37,22 @@ const Footer: FC = () => {
 
         <List sx={{ padding: 0 }}>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/viral-plus">
               <a className={classes.link}>Viral Plus</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/for-creators">
               <a className={classes.link}>For Creators</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/for-sponsors">
               <a className={classes.link}>For Sponsors</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/help">
               <a className={classes.link}>Help Center</a>
             </Link>
           </ListItemEl>
@@ -63,22 +63,22 @@ const Footer: FC = () => {
 
         <List sx={{ padding: 0 }}>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/about">
               <a className={classes.link}>About</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/news">
               <a className={classes.link}>News</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/careers">
               <a className={classes.link}>Careers</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/contact">
               <a className={classes.link}>Contact</a>
             </Link>
           </ListItemEl>
@@ -89,7 +89,7 @@ const Footer: FC = () => {
 
         <List sx={{ padding: 0 }}>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/leaderboards">
               <a className={classes.link}>Leaderboards</a>
             </Link>
           </ListItemEl>
@@ -105,12 +105,12 @@ const Footer: FC = () => {
 
         <List sx={{ padding: 0 }}>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/terms">
               <a className={classes.link}>Terms of Service</a>
             </Link>
           </ListItemEl>
           <ListItemEl>
-            <Link href="/">
+            <Link href="/privacy-policy">
               <a className={classes.link}>Privacy Policy</a>
             </Link>
           </ListItemEl>
