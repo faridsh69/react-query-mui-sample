@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-export const useStyles = makeStyles()(() => ({
+export const useStyles = makeStyles<void, 'link'>()((_theme, _params, classes) => ({
   header: {
     padding: '0 3rem',
     display: 'flex',
@@ -10,6 +10,15 @@ export const useStyles = makeStyles()(() => ({
     right: 0,
     top: 0,
     zIndex: 100,
+    height: '6.9rem',
+
+    [`&.light > .${classes.link}`]: {
+      color: 'var(--color-white)'
+    },
+
+    ['&.light svg']: {
+      fill: 'var(--color-white)'
+    },
 
     '& button': {
       fontSize: '1.8rem'
@@ -20,6 +29,7 @@ export const useStyles = makeStyles()(() => ({
     height: '6.1rem',
     marginRight: '4rem',
     transform: 'translateY(1rem)',
+    alignSelf: 'flex-start',
 
     '& > svg': {
       width: '100%',
@@ -30,12 +40,16 @@ export const useStyles = makeStyles()(() => ({
     textDecoration: 'none',
     fontSize: '2rem',
     fontWeight: 600,
-    color: '#261E1F',
+    color: 'var(--color-secondary-dark)',
     opacity: 0.5,
     marginRight: '2.8rem',
+    marginBottom: '0.5rem',
+
+    "&[aria-selected='true']": {
+      opacity: 1
+    },
 
     '&:hover': {
-      color: 'var(--color-black)',
       opacity: 1
     },
 
