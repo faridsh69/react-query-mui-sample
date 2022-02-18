@@ -9,6 +9,7 @@ import Badge from '@mui/material/Badge';
 import Chip from '@mui/material/Chip';
 
 import { SVG } from '@assets/icons/svgIcons';
+import BlurBackground from '@components/BlurBG';
 import Tabs from './Tabs';
 import PodcastPanel from './Panel';
 import { useStyles } from './styles';
@@ -18,9 +19,7 @@ const PodcastContainer: FC = () => {
 
   return (
     <>
-      <div className={classes.banner}>
-        <div className={classes.filter}>&nbsp;</div>
-
+      <BlurBackground img="/images/poster.png">
         <figure className={classes.figure}>
           <Image priority src="/images/poster.png" layout="fill" alt="happy-place-podcast" />
         </figure>
@@ -100,7 +99,7 @@ const PodcastContainer: FC = () => {
             </IconButton>
           </Stack>
         </Stack>
-      </div>
+      </BlurBackground>
 
       <PodcastPanel />
     </>
