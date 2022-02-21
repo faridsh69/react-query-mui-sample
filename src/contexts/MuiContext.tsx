@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { GlobalStyles } from 'tss-react';
 
 import { theme } from '@utils/statics';
+import { Color } from '@custom-types/general-types';
 
 const MaterialProvider: FC = ({ children }) => {
   return (
@@ -43,7 +44,7 @@ const MaterialProvider: FC = ({ children }) => {
             boxSizing: 'border-box',
             fontSize: '1.5rem',
             fontFamily: 'Montserrat',
-            color: 'var(--color-secondary-dark)',
+            color: Color.SEC_DARK,
             padding: '0 !important',
             fontWeight: 500,
             lineHeight: 1.6
@@ -54,7 +55,9 @@ const MaterialProvider: FC = ({ children }) => {
           },
 
           strong: {
-            color: 'var(--color-secondary-dark)'
+            '&.dark': {
+              color: Color.SEC_DARK
+            }
           },
           figure: {
             position: 'relative'
@@ -63,6 +66,37 @@ const MaterialProvider: FC = ({ children }) => {
           '.padding': {
             paddingRight: '14rem',
             paddingLeft: '14rem'
+          },
+
+          'button.slider-arrow': {
+            position: 'absolute',
+            width: '15rem',
+            borderRadius: 0,
+            top: 0,
+            bottom: 0,
+
+            '&:hover': {
+              backgroundColor: 'transparent'
+            },
+
+            '&.right': {
+              right: 0,
+              paddingRight: '2rem',
+              justifyContent: 'flex-end',
+              background:
+                'transparent linear-gradient(270deg, #FFFFFF 0%, #FFFFFF00 100%) 0% 0% no-repeat padding-box'
+            },
+            '&.left': {
+              left: 0,
+              paddingLeft: '2rem',
+              justifyContent: 'flex-start',
+              background:
+                'transparent linear-gradient(270deg, #FFFFFF00 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box',
+
+              '& > svg': {
+                transform: 'rotate(-180deg)'
+              }
+            }
           }
         }}
       />

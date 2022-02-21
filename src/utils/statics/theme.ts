@@ -3,6 +3,12 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   components: {
     MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle1: 'p',
+          subtitle2: 'p'
+        }
+      },
       styleOverrides: {
         root: {
           fontSize: '1.6rem',
@@ -16,6 +22,15 @@ export const theme = createTheme({
         },
         h2: {
           fontSize: '3rem',
+          fontWeight: 500,
+          color: 'inherit',
+
+          '&.regular': {
+            fontWeight: 400
+          }
+        },
+        h3: {
+          fontSize: '2rem',
           fontWeight: 500
         },
         caption: {
@@ -27,7 +42,11 @@ export const theme = createTheme({
           fontWeight: 500,
           display: 'inline-block',
           fontSize: '1.4rem',
-          color: 'var(--color-secondary-main)'
+          color: 'var(--color-secondary-main)',
+
+          '&.regular': {
+            fontWeight: 400
+          }
         },
         subtitle2: {
           fontWeight: 400,
