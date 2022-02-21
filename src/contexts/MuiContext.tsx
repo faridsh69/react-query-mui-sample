@@ -68,6 +68,10 @@ const MaterialProvider: FC = ({ children }) => {
             paddingLeft: '14rem'
           },
 
+          '.padding-left': {
+            paddingLeft: '14rem'
+          },
+
           'button.slider-arrow': {
             position: 'absolute',
             width: '15rem',

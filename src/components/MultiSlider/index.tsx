@@ -6,7 +6,7 @@ import Carousel from '@components/Carousel';
 
 interface MultiSliderProps {
   title: string;
-  className?: string;
+  leftPadding?: boolean;
 }
 
 const responsive = {
@@ -27,9 +27,9 @@ const responsive = {
   }
 };
 
-const MultiSlider: FC<MultiSliderProps> = ({ title, className }) => {
+const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding }) => {
   return (
-    <div className={`slider ${className}`}>
+    <div className={`slider ${leftPadding ? 'padding-left' : ''}`}>
       <Typography className="regular" variant="h2" component="p" mb="1.8rem">
         {title}
       </Typography>
@@ -81,7 +81,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ title, className }) => {
 };
 
 MultiSlider.defaultProps = {
-  className: ''
+  leftPadding: true
 };
 
 export default MultiSlider;

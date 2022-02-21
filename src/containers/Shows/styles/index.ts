@@ -24,7 +24,6 @@ export const useStyles = makeStyles()(() => ({
   },
   panel: {
     marginBottom: '9rem',
-    marginLeft: '14rem',
 
     '& > div.slider': {
       marginTop: '4.9rem'
