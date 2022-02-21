@@ -11,14 +11,18 @@ const responsive = {
   }
 };
 
-const HeaderSlider: FC = ({ children }) => {
+interface HeaderSliderProps {
+  gutterBottom?: 'md' | 'lg';
+}
+
+const HeaderSlider: FC<HeaderSliderProps> = ({ children, gutterBottom = 'md' }) => {
   const { classes } = useStyles();
 
   return (
     <Carousel
       containerClass={classes.slider}
       itemClass={classes.sliderItem}
-      dotListClass={classes.sliderDotList}
+      dotListClass={`${classes.sliderDotList} ${gutterBottom}`}
       draggable={false}
       arrows={false}
       responsive={responsive}
