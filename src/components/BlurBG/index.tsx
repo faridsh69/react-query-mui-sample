@@ -11,12 +11,14 @@ const styleConfig = {
   lg: {
     height: '69rem',
     backgroundSize: '100%',
-    backgroundPosition: '100% 55%'
+    backgroundPosition: '100% 55%',
+    paddingLeft: '3rem'
   },
   md: {
     height: '61.3rem',
     backgroundSize: '112%',
-    backgroundPosition: '50% 50%'
+    backgroundPosition: '50% 50%',
+    paddingLeft: 0
   }
 };
 
@@ -25,7 +27,6 @@ const Root = styled('div')<BlurBackgroundProps>(({ img, size = 'lg', transparent
   backgroundImage: `url(${img})`,
   backgroundRepeat: 'no-repeat',
   position: 'relative',
-  paddingLeft: '3rem',
   paddingRight: '14rem',
   display: 'flex',
 

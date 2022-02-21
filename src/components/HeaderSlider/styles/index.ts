@@ -4,7 +4,7 @@ import { Color } from '@custom-types/general-types';
 
 export const useStyles = makeStyles()(() => ({
   slider: {
-    '&:first-of-type': {
+    '&:first-child': {
       paddingTop: 0
     }
   },
@@ -16,7 +16,11 @@ export const useStyles = makeStyles()(() => ({
   sliderDotList: {
     right: 'auto',
     left: '25rem',
-    bottom: '20%',
+    bottom: '10.8rem',
+
+    '&.lg': {
+      bottom: '12.4rem'
+    },
 
     '& > .react-multi-carousel-dot > button': {
       width: '1.9rem',

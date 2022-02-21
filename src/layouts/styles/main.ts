@@ -9,7 +9,7 @@ export const useStyles = makeStyles()(() => ({
   main: {
     flex: '1 1 auto',
 
-    '& > *:first-of-type': {
+    '& > *:first-child': {
       paddingTop: '8.5rem'
     }
   }

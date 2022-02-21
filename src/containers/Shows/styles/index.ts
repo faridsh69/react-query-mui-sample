@@ -11,7 +11,7 @@ export const useStyles = makeStyles()(() => ({
   infoBox: {
     color: Color.WHITE,
     alignItems: 'flex-start',
-    paddingLeft: '22rem',
+    paddingLeft: '25rem',
     paddingTop: '8rem',
 
     '& > button.MuiButton-root': {
