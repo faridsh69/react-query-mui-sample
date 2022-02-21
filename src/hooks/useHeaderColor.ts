@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-const LIGHT_PATHS = ['/shows'];
+const LIGHT_PATHS = ['/', '/shows'];
 
 export const useHeaderColor = () => {
   const { pathname } = useRouter();
