@@ -57,7 +57,7 @@ const PodcastContainer: FC = () => {
               <Typography variant="subtitle1">
                 Host
                 <br />
-                <strong>Fearne Cotton</strong>
+                <strong className="dark">Fearne Cotton</strong>
               </Typography>
             </Stack>
 
@@ -73,7 +73,7 @@ const PodcastContainer: FC = () => {
               <Typography variant="subtitle1">
                 Show King
                 <br />
-                <strong>John Smith</strong>
+                <strong className="dark">John Smith</strong>
               </Typography>
             </Stack>
           </Stack>
