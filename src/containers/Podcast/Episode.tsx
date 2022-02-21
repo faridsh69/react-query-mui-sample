@@ -21,7 +21,7 @@ const Episode: FC = () => {
       </figure>
 
       <Stack flex={1} direction="column" alignItems="flex-start" spacing={1}>
-        <NewBadge position="right">
+        <NewBadge position="right" display>
           <Typography variant="h2">Bigger Than Us</Typography>
         </NewBadge>
 
