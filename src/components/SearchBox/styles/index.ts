@@ -15,7 +15,6 @@ export const useStyles = makeStyles()(() => ({
     }
   },
   label: {
-    fontSize: '3rem',
     color: 'inherit'
   },
   input: {

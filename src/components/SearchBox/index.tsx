@@ -20,7 +20,11 @@ const SearchBox: FC<SearchBoxProps> = ({ variant, label, labelPosition }) => {
 
   return (
     <>
-      {labelPosition === 'top' && <Typography className={classes.label}>{label}</Typography>}
+      {labelPosition === 'top' && (
+        <Typography className="regular" variant="h2" component="p">
+          {label}
+        </Typography>
+      )}
 
       <Stack
         spacing={2}
@@ -28,7 +32,11 @@ const SearchBox: FC<SearchBoxProps> = ({ variant, label, labelPosition }) => {
         alignItems="center"
         className={`${classes.root} ${variant}`}
       >
-        {labelPosition === 'left' && <Typography className={classes.label}>{label}</Typography>}
+        {labelPosition === 'left' && (
+          <Typography className="regular" variant="h2" component="p">
+            {label}
+          </Typography>
+        )}
         <TextField
           placeholder="Search for genres, categories or podcasts"
           className={`${classes.input} ${variant}`}
