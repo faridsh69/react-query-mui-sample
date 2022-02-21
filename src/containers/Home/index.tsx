@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import HeaderSlider from '@components/HeaderSlider';
+import FeaturedPodcasts from './Featured';
 import { useStyles } from './styles';
 
 const DATA = [
@@ -57,6 +58,8 @@ const HomeContainer: FC = () => {
           className={classes.img}
         />
       </figure>
+
+      <FeaturedPodcasts />
     </>
   );
 };
