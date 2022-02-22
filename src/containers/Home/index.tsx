@@ -10,6 +10,7 @@ import JoinMailingList from '@components/JoinMailing';
 import FeaturedPodcasts from './Featured';
 import GuideSection from './GuideSection';
 import ViralNews from './ViralNews';
+import QuotesSection from './QuotesSection';
 import { useStyles } from './styles';
 
 const DATA = [
@@ -70,6 +71,8 @@ const HomeContainer: FC = () => {
       <ViralNews />
 
       <JoinMailingList />
+
+      <QuotesSection />
     </>
   );
 };
