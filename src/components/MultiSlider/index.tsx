@@ -1,12 +1,15 @@
 import { FC } from 'react';
+import dynamic from 'next/dynamic';
 import Typography from '@mui/material/Typography';
 
-import PodcastCard from '@components/PodcastCard';
 import Carousel from '@components/Carousel';
+const PodcastCard = dynamic(() => import('@components/PodcastCard'));
+const NewsCard = dynamic(() => import('@components/NewsCard'));
 
 interface MultiSliderProps {
   title: string;
   leftPadding?: boolean;
+  type?: 'news' | 'podcast';
 }
 
 const responsive = {
@@ -27,7 +30,47 @@ const responsive = {
   }
 };
 
-const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding }) => {
+const TEMP_PODCASTS = [
+  {
+    slug: 'happy-place',
+    image: '/images/poster.png',
+    title: 'The Happy Place',
+    description: 'Seasons 2 • 88 Episodes',
+    isNew: true
+  },
+  {
+    slug: 'happy-place',
+    image: '/images/absolute-mental.jpg',
+    title: 'Absolutely Mental',
+    description: 'Seasons 1 • 120 Episodes'
+  },
+  {
+    slug: 'happy-place',
+    image: '/images/under-the-skin.jpg',
+    title: 'Under The Skin',
+    description: 'Seasons 2 • 88 Episodes',
+    viral: true
+  }
+];
+
+const TEMP_NEWS = [
+  {
+    slug: 'happy-place',
+    image: '/images/ben.jpg',
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+  },
+  {
+    slug: 'happy-place',
+    image: '/images/news-pic.jpg',
+    title: 'Lorem ipsum dolor sit amet, consectetur adipiscing eli',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.'
+  }
+];
+
+const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding, type = 'podcast' }) => {
   return (
     <div className={`slider ${leftPadding ? 'padding-left' : ''}`}>
       <Typography className="regular" variant="h2" component="p" mb="1.8rem">
@@ -35,46 +78,11 @@ const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding }) => {
       </Typography>
 
       <Carousel draggable={false} responsive={responsive}>
-        <PodcastCard
-          slug="happy-place"
-          title="The Happy Place"
-          description="Seasons 2 • 88 Episodes"
-          image="/images/poster.png"
-          isNew
-        />
-        <PodcastCard
-          slug="happy-place"
-          title="Absolutely Mental"
-          description="Seasons 1 • 120 Episodes"
-          image="/images/absolute-mental.jpg"
-        />
-        <PodcastCard
-          slug="happy-place"
-          title="Under The Skin"
-          description="Seasons 1 • 120 Episodes"
-          image="/images/under-the-skin.jpg"
-          viral
-        />
-        <PodcastCard
-          slug="happy-place"
-          title="The Happy Place"
-          description="Seasons 2 • 88 Episodes"
-          image="/images/poster.png"
-          isNew
-        />
-        <PodcastCard
-          slug="happy-place"
-          title="Absolutely Mental"
-          description="Seasons 1 • 120 Episodes"
-          image="/images/absolute-mental.jpg"
-        />
-        <PodcastCard
-          slug="happy-place"
-          title="Under The Skin"
-          description="Seasons 1 • 120 Episodes"
-          image="/images/under-the-skin.jpg"
-          viral
-        />
+        {type == 'podcast'
+          ? TEMP_PODCASTS.concat(TEMP_PODCASTS).map(p => <PodcastCard key={p.title} {...p} />)
+          : TEMP_NEWS.concat(TEMP_NEWS)
+              .concat(TEMP_NEWS)
+              .map(n => <NewsCard key={n.title} {...n} />)}
       </Carousel>
     </div>
   );
