@@ -6,7 +6,8 @@ export const theme = createTheme({
       defaultProps: {
         variantMapping: {
           subtitle1: 'p',
-          subtitle2: 'p'
+          subtitle2: 'p',
+          h6: 'p'
         }
       },
       styleOverrides: {
@@ -30,8 +31,24 @@ export const theme = createTheme({
           }
         },
         h3: {
+          fontSize: '2.6rem',
+          color: 'inherit'
+        },
+        h4: {
+          fontSize: '2.5rem',
+          color: 'inherit'
+        },
+        h5: {
           fontSize: '2rem',
-          fontWeight: 500
+          fontWeight: 500,
+
+          '&.regular': {
+            fontWeight: 400
+          }
+        },
+        h6: {
+          fontSize: '1.8rem',
+          fontWeight: 400
         },
         caption: {
           fontWeight: 500,
@@ -92,6 +109,10 @@ export const theme = createTheme({
 
           '&:hover': {
             borderColor: 'currentColor'
+          },
+
+          '&.bold': {
+            fontWeight: 600
           },
 
           "&[aria-label='underline']": {

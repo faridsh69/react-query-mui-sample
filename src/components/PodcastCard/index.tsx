@@ -36,7 +36,7 @@ const PodcastCard: FC<PodcastCardProps> = ({ title, description, image, slug, vi
               <strong>New Episodes First</strong>
             </Typography>
           )}
-          <Typography variant="h3" component="p">
+          <Typography variant="h5" component="p">
             {title}
           </Typography>
           <Typography variant="subtitle1" className="regular">
