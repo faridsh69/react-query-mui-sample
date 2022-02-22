@@ -7,10 +7,11 @@ export const useStyles = makeStyles()(() => ({
     height: '61.3rem',
     color: Color.WHITE,
     paddingRight: '60rem',
-    paddingLeft: '25rem'
-  },
-  img: {
-    zIndex: -1
+    paddingLeft: '25rem',
+    backgroundBlendMode: 'multiply',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    backgroundPosition: 'top'
   },
   title: {
     paddingTop: '10rem',

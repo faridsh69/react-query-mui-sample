@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+import { Color } from '@custom-types/general-types';
 import HeaderSlider from '@components/HeaderSlider';
 import FeaturedPodcasts from './Featured';
 import { useStyles } from './styles';
@@ -34,9 +35,10 @@ const HomeContainer: FC = () => {
             position="relative"
             alignItems="flex-start"
             className={classes.root}
+            sx={{
+              background: `url(${p.image}), linear-gradient(70deg, ${Color.PRM_MAIN} 55%, transparent 50%)`
+            }}
           >
-            <Image priority src={p.image} layout="fill" alt={p.title} className={classes.img} />
-
             <Typography variant="h1" component="h2" className={classes.title}>
               {p.title}
             </Typography>
@@ -55,7 +57,6 @@ const HomeContainer: FC = () => {
           width={232}
           height={234}
           alt="viral-tribe-circle-logo"
-          className={classes.img}
         />
       </figure>
 
