@@ -7,6 +7,7 @@ export const theme = createTheme({
         variantMapping: {
           subtitle1: 'p',
           subtitle2: 'p',
+          h5: 'p',
           h6: 'p'
         }
       },
@@ -41,6 +42,8 @@ export const theme = createTheme({
         h5: {
           fontSize: '2rem',
           fontWeight: 500,
+          letterSpacing: 0,
+          lineHeight: 1.5,
 
           '&.regular': {
             fontWeight: 400
@@ -48,7 +51,13 @@ export const theme = createTheme({
         },
         h6: {
           fontSize: '1.8rem',
-          fontWeight: 400
+          letterSpacing: 0,
+          lineHeight: 1.5,
+          fontWeight: 400,
+
+          '&.medium': {
+            fontWeight: 500
+          }
         },
         caption: {
           fontWeight: 500,
