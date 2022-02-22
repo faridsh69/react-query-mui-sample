@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import { Color } from '@custom-types/general-types';
 import HeaderSlider from '@components/HeaderSlider';
 import FeaturedPodcasts from './Featured';
+import GuideSection from './GuideSection';
+import ViralNews from './ViralNews';
 import { useStyles } from './styles';
 
 const DATA = [
@@ -43,7 +45,7 @@ const HomeContainer: FC = () => {
               {p.title}
             </Typography>
 
-            <Button variant="contained" color="primary" sx={{ fontWeight: 600 }}>
+            <Button variant="contained" color="primary" className="bold">
               GET STARTED
             </Button>
           </Stack>
@@ -61,6 +63,10 @@ const HomeContainer: FC = () => {
       </figure>
 
       <FeaturedPodcasts />
+
+      <GuideSection />
+
+      <ViralNews />
     </>
   );
 };
