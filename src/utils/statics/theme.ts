@@ -20,7 +20,11 @@ export const theme = createTheme({
         },
         h1: {
           fontSize: '4.9rem',
-          fontWeight: 500
+          fontWeight: 500,
+
+          '&.regular': {
+            fontWeight: 400
+          }
         },
         h2: {
           fontSize: '3rem',
