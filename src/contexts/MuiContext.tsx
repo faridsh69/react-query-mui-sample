@@ -38,7 +38,15 @@ const MaterialProvider: FC = ({ children }) => {
           html: {
             fontSize: '62.5%',
             overflowY: 'auto',
-            overflowX: 'hidden'
+            overflowX: 'hidden',
+
+            [theme.breakpoints.up('bigDesktop')]: {
+              fontSize: '75%'
+            },
+
+            [theme.breakpoints.down('desktop')]: {
+              fontSize: '56.25%'
+            }
           },
           body: {
             boxSizing: 'border-box',
@@ -65,11 +73,20 @@ const MaterialProvider: FC = ({ children }) => {
 
           '.padding': {
             paddingRight: '14rem',
-            paddingLeft: '14rem'
+            paddingLeft: '14rem',
+
+            [theme.breakpoints.up('bigDesktop')]: {
+              paddingRight: '20rem',
+              paddingLeft: '20rem'
+            }
           },
 
           '.padding-left': {
-            paddingLeft: '14rem'
+            paddingLeft: '14rem',
+
+            [theme.breakpoints.up('bigDesktop')]: {
+              paddingLeft: '20rem'
+            }
           },
 
           'h1,h2,h3,h4,h5,h6,p,span': {
