@@ -10,7 +10,7 @@ const JoinMailingList: FC = () => {
   const { classes } = useStyles();
 
   return (
-    <Stack direction="row" spacing={2} className={`padding ${classes.root}`}>
+    <Stack direction="row" spacing={2} className={`padding-left ${classes.root}`}>
       <div>
         <Typography variant="h3" component="p">
           Join the mailing list

@@ -89,6 +89,36 @@ const MaterialProvider: FC = ({ children }) => {
             }
           },
 
+          '.card.MuiCard-root': {
+            minWidth: '26rem',
+            width: '26rem',
+            boxShadow: 'none',
+
+            '& figure': {
+              height: '26rem',
+              minWidth: '100%',
+              maxWidth: '100%',
+
+              [theme.breakpoints.up('bigDesktop')]: {
+                height: '28rem'
+              },
+
+              '@media (max-width: 1350px)': {
+                height: '25rem'
+              }
+            },
+
+            [theme.breakpoints.up('bigDesktop')]: {
+              minWidth: '28rem',
+              width: '28rem'
+            },
+
+            '@media (max-width: 1350px)': {
+              minWidth: '25rem',
+              width: '25rem'
+            }
+          },
+
           'h1,h2,h3,h4,h5,h6,p,span': {
             '&.white': {
               color: Color.WHITE

@@ -42,7 +42,7 @@ const HomeContainer: FC = () => {
             alignItems="flex-start"
             className={classes.root}
             sx={{
-              background: `url(${p.image}), linear-gradient(70deg, ${Color.PRM_MAIN} 55%, transparent 50%)`
+              background: `url(${p.image}), linear-gradient(70deg, ${Color.PRM_MAIN} 57%, transparent 50%)`
             }}
           >
             <Typography variant="h1" component="h2" className={classes.title}>

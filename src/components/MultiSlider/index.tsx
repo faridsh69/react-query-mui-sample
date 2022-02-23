@@ -14,18 +14,23 @@ interface MultiSliderProps {
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4.5,
+    breakpoint: { max: 3000, min: 1300 },
+    items: 4.4,
+    slidesToSlide: 2
+  },
+  laptop: {
+    breakpoint: { max: 1300, min: 1000 },
+    items: 3.7,
     slidesToSlide: 2
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 3,
-    slidesToSlide: 2
+    breakpoint: { max: 1000, min: 460 },
+    items: 2.5,
+    slidesToSlide: 1
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
+    breakpoint: { max: 460, min: 0 },
+    items: 1.5,
     slidesToSlide: 1
   }
 };

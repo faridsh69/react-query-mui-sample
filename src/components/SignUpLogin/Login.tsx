@@ -12,7 +12,7 @@ interface LoginProps {
 const Login: FC<LoginProps> = ({ handleSwitch }) => {
   return (
     <>
-      <Typography component="div">
+      <Typography component="div" mb="3rem">
         <span>Login to your account, new to Viral Tribe? Create an&nbsp;</span>
         <Button aria-label="underline" sx={{ padding: 0 }} onClick={handleSwitch}>
           account.
@@ -24,7 +24,7 @@ const Login: FC<LoginProps> = ({ handleSwitch }) => {
         <TextField type="password" placeholder="Password" variant="outlined" />
       </Stack>
 
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" className="my">
         Login
       </Button>
 

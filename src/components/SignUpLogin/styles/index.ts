@@ -5,10 +5,16 @@ export const useStyles = makeStyles()(() => ({
     height: '100vh',
     width: '53.6rem',
     backgroundColor: 'var(--color-white)',
-    padding: '15.2rem 9.2rem',
-    position: 'relative'
+    padding: '15.2rem 9.2rem 0',
+    position: 'relative',
+
+    '& button.my': {
+      margin: '3rem 0'
+    }
   },
   tabs: {
+    marginBottom: '2rem',
+
     '& .MuiTabs-indicator': {
       display: 'none'
     }

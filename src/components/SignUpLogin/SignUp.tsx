@@ -8,7 +8,9 @@ import Button from '@mui/material/Button';
 const SignUp: FC = () => {
   return (
     <>
-      <Typography>It’s free! Sign up today to start listening and receiving SATs.</Typography>
+      <Typography mb="3rem">
+        It’s free! Sign up today to start listening and receiving SATs.
+      </Typography>
 
       <Stack direction="column" spacing={1.5}>
         <TextField type="email" placeholder="Email" variant="outlined" />
@@ -16,7 +18,7 @@ const SignUp: FC = () => {
         <TextField type="password" placeholder="Password" variant="outlined" />
       </Stack>
 
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" className="my">
         Sign up
       </Button>
 

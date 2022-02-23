@@ -6,6 +6,7 @@ export const useStyles = makeStyles()(() => ({
   root: {
     paddingTop: '3rem',
     paddingBottom: '3rem',
+    paddingRight: '3rem',
     backgroundColor: Color.PRM_DARK,
     color: Color.WHITE,
 
@@ -15,7 +16,7 @@ export const useStyles = makeStyles()(() => ({
     },
 
     '& > div:first-of-type': {
-      marginRight: '3.4rem'
+      marginRight: '2.4rem'
     }
   },
   input: {
@@ -23,6 +24,10 @@ export const useStyles = makeStyles()(() => ({
       height: '5.8rem',
       width: '26rem',
       backgroundColor: Color.WHITE,
+
+      '@media (max-width: 1250px)': {
+        width: '24rem'
+      },
 
       '& > .MuiOutlinedInput-notchedOutline': {
         borderColor: 'transparent'

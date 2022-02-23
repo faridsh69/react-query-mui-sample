@@ -19,8 +19,8 @@ const NewsCard: FC<PodcastCardProps> = ({ title, description, image, slug }) => 
   const { classes } = useStyles();
 
   return (
-    <Card className={classes.root}>
-      <figure className={classes.figure}>
+    <Card className="card">
+      <figure>
         <Image src={image} alt={title} layout="fill" />
       </figure>
 

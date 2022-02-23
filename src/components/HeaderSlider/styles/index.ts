@@ -2,7 +2,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import { Color } from '@custom-types/general-types';
 
-export const useStyles = makeStyles()(() => ({
+export const useStyles = makeStyles()(theme => ({
   slider: {
     '&:first-child': {
       paddingTop: 0
@@ -17,6 +17,14 @@ export const useStyles = makeStyles()(() => ({
     right: 'auto',
     left: '25rem',
     bottom: '10.8rem',
+
+    [theme.breakpoints.up('bigDesktop')]: {
+      left: '20rem'
+    },
+
+    '@media (max-width: 1300px)': {
+      left: '18rem'
+    },
 
     '&.lg': {
       bottom: '12.4rem'

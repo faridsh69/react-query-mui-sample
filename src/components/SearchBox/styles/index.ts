@@ -27,7 +27,8 @@ export const useStyles = makeStyles()(() => ({
     },
 
     '& .MuiOutlinedInput-root': {
-      paddingLeft: 0
+      paddingLeft: 0,
+      height: '100%'
     },
 
     '& .MuiOutlinedInput-notchedOutline': {

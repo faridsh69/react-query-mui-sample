@@ -29,7 +29,7 @@ const SignUpLogin: FC<SignUpLoginProps> = ({ type }) => {
   };
 
   return (
-    <Stack direction="column" spacing={3} className={classes.root}>
+    <Stack direction="column" spacing={0} className={classes.root}>
       <IconButton className={classes.closeBtn} onClick={closeDialog}>
         <SVG id="close" />
       </IconButton>

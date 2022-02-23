@@ -9,8 +9,9 @@ export const useStyles = makeStyles()(() => ({
   },
   title: {
     fontSize: '2.5rem',
-    maxWidth: '60%',
-    margin: '0 auto 6rem',
+    maxWidth: '80%',
+    marginBottom: '6rem',
+    paddingLeft: '25rem',
     color: Color.SEC_MAIN
   }
 }));

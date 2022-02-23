@@ -22,7 +22,7 @@ const PodcastCard: FC<PodcastCardProps> = ({ title, description, image, slug, vi
 
   return (
     <Link href={`/shows/${slug}`} passHref>
-      <Card component="a" className={classes.root}>
+      <Card component="a" className={`card ${classes.root}`}>
         <NewBadge position="top-left" display={isNew}>
           <figure className={classes.figure}>
             <Image src={image} alt={title} layout="fill" />
