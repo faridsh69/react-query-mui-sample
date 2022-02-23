@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { Color } from '@custom-types/general-types';
 import HeaderSlider from '@components/HeaderSlider';
 import JoinMailingList from '@components/JoinMailing';
+import ForCS from '@components/ForCS';
 import JoinUs from '@components/JoinUs';
 import FeaturedPodcasts from './Featured';
 import GuideSection from './GuideSection';
@@ -76,6 +77,8 @@ const HomeContainer: FC = () => {
       <QuotesSection />
 
       <JoinUs />
+
+      <ForCS />
     </>
   );
 };
