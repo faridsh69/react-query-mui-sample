@@ -14,6 +14,10 @@ export const useStyles = makeStyles()(() => ({
     paddingLeft: '25rem',
     paddingTop: '8rem',
 
+    '@media (max-width: 1300px)': {
+      paddingLeft: '15rem'
+    },
+
     '& > button.MuiButton-root': {
       marginTop: '3rem'
     },

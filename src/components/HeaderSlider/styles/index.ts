@@ -19,7 +19,9 @@ export const useStyles = makeStyles()(theme => ({
     bottom: '10.8rem',
 
     [theme.breakpoints.up('bigDesktop')]: {
-      left: '20rem'
+      '&.lg': {
+        left: '20rem'
+      }
     },
 
     '@media (max-width: 1300px)': {
