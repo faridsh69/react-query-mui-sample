@@ -4,7 +4,13 @@ export const useStyles = makeStyles()(() => ({
   figure: {
     minWidth: '53.6rem',
     maxWidth: '53.6rem',
-    height: '53.6rem'
+    height: '53.6rem',
+
+    '@media (max-width:1300px)': {
+      minWidth: '48rem',
+      maxWidth: '48rem',
+      height: '48rem'
+    }
   },
   infoBox: {
     position: 'relative',
@@ -12,7 +18,13 @@ export const useStyles = makeStyles()(() => ({
     alignSelf: 'flex-start',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+
+    '@media (max-width:1300px)': {
+      '& h1': {
+        fontSize: '4rem'
+      }
+    }
   },
   tBtn: {
     padding: '1.6rem 1.8rem',

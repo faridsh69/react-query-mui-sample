@@ -30,6 +30,10 @@ const Root = styled('div')<BlurBackgroundProps>(({ img, size = 'lg', transparent
   paddingRight: '14rem',
   display: 'flex',
 
+  '@media (max-width:1300px)': {
+    height: size === 'lg' ? '65rem' : '61.3rem'
+  },
+
   '& > div.filter': {
     position: 'absolute',
     top: 0,
