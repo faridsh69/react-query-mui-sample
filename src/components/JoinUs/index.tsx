@@ -18,7 +18,7 @@ const JoinUs: FC = () => {
       pl="23.1rem"
     >
       <Stack alignItems="flex-start" direction="column" spacing={2}>
-        <Typography lineHeight="1" variant="h2">
+        <Typography className="regular" lineHeight="1" variant="h2">
           Become part of the Tribe today.
         </Typography>
         <Typography color={Color.SEC_MAIN} className="regular" variant="h5">

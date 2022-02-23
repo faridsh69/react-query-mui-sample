@@ -72,6 +72,12 @@ const MaterialProvider: FC = ({ children }) => {
             paddingLeft: '14rem'
           },
 
+          'h1,h2,h3,h4,h5,h6,p,span': {
+            '&.white': {
+              color: Color.WHITE
+            }
+          },
+
           'button.slider-arrow': {
             position: 'absolute',
             width: '15rem',
