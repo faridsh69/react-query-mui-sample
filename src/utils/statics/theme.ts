@@ -16,7 +16,7 @@ export const theme = createTheme({
           fontSize: '1.6rem',
           fontFamily: 'inherit',
           color: 'var(--color-secondary-dark)',
-          lineHeight: 1.6
+          lineHeight: 1.5
         },
         h1: {
           fontSize: '4.9rem',
@@ -30,6 +30,7 @@ export const theme = createTheme({
           fontSize: '3rem',
           fontWeight: 500,
           color: 'inherit',
+          letterSpacing: 0,
 
           '&.regular': {
             fontWeight: 400
@@ -126,6 +127,10 @@ export const theme = createTheme({
 
           '&.bold': {
             fontWeight: 600
+          },
+
+          '&.shadow': {
+            boxShadow: '0px 0px 20px #06707C48'
           },
 
           "&[aria-label='underline']": {
