@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui';
 
-import { Color } from '@custom-types/general-types';
+import { Color } from '@interfaces/general';
 
 export const useStyles = makeStyles()(theme => ({
   slider: {

@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 import { SVG } from '@assets/icons/svgIcons';
-import { ThemeVariant, Color } from '@custom-types/general-types';
+import { ThemeVariant, Color } from '@interfaces/general';
 import { useStyles } from './styles';
 
 interface SearchBoxProps {

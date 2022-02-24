@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { getPodcasts } from '@lib/podcast';
 import { queryKeys } from '@utils/helpers';
-import { Params } from '@custom-types/general-types';
+import { Params } from '@interfaces/general';
 
 export const usePodcasts = (params?: Params) => {
   const { data = [], isLoading } = useQuery(

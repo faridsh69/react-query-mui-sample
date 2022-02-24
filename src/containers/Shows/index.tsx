@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import { usePodcasts } from '@hooks/usePodcasts';
-import { ThemeVariant } from '@custom-types/general-types';
+import { ThemeVariant } from '@interfaces/general';
 import BlurBackground from '@components/BlurBG';
 import SearchBox from '@components/SearchBox';
 import PodcastSlider from '@components/MultiSlider';

@@ -24,7 +24,7 @@
       "@utils/*": ["src/utils/*"],
       "@contexts/*": ["src/contexts/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@custom-types/*": ["src/types/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@api/*": ["api/*"],
       "@lib/*": ["lib/*"]
     }

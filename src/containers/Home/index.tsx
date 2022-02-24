@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-import { Color } from '@custom-types/general-types';
+import { Color } from '@interfaces/general';
 import HeaderSlider from '@components/HeaderSlider';
 import JoinMailingList from '@components/JoinMailing';
 import ForCS from '@components/ForCS';

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import { SVG, Icons } from '@assets/icons/svgIcons';
-import { Color } from '@custom-types/general-types';
+import { Color } from '@interfaces/general';
 import { useStyles } from './styles/guide';
 
 interface InfoBoxProps {

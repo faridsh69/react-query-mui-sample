@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
-import { Color } from '@custom-types/general-types';
+import { Color } from '@interfaces/general';
 
 const StyledStack = styled(Stack)({
   paddingTop: '3rem',

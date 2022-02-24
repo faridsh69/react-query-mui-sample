@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { GlobalStyles } from 'tss-react';
 
 import { theme } from '@utils/statics';
-import { Color } from '@custom-types/general-types';
+import { Color } from '@interfaces/general';
 
 const MaterialProvider: FC = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
 import viralTribeAPI from '@api/viralTribeAPI';
 
-import { Params } from '@custom-types/general-types';
-import { IPodcast } from '@custom-types/podcast';
+import { Params } from '@interfaces/general';
+import { IPodcast } from '@interfaces/podcast';
 
 const INITIAL_PARAMS = {
   select: 'title,image,description,itunes.categories'
