@@ -1,8 +1,11 @@
-import type { AppProps } from 'next/app';
+import { useState } from 'react';
 import Head from 'next/head';
+import type { AppProps } from 'next/app';
 import { CacheProvider, EmotionCache } from '@emotion/react';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { Hydrate, QueryClientProvider } from 'react-query';
 
-import { createEmotionCache } from '@utils/helpers';
+import { createEmotionCache, getQueryClient } from '@utils/helpers';
 import MuiProvider from '@contexts/MuiContext';
 import DialogProvider from '@contexts/DialogContext';
 import MainLayout from '@layouts/index';
@@ -16,6 +19,7 @@ interface MyAppProps extends AppProps {
 
 function MyApp(props: MyAppProps) {
   const { Component, pageProps, emotionCache = clientSideEmotionCache } = props;
+  const [queryClient] = useState(getQueryClient);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -24,9 +28,14 @@ function MyApp(props: MyAppProps) {
       </Head>
       <MuiProvider>
         <DialogProvider>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
+          <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
+              <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+            </Hydrate>
+          </QueryClientProvider>
         </DialogProvider>
       </MuiProvider>
     </CacheProvider>
