@@ -18,3 +18,11 @@ export enum Color {
   WHITE = 'var(--color-white)',
   BLACK = 'var(--color-black)'
 }
+
+export interface Params {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  select?: string;
+  [key: string]: unknown;
+}
