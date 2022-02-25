@@ -22,6 +22,13 @@ export const useStyles = makeStyles()(() => ({
       marginTop: '3rem'
     },
 
+    '& > p:first-of-type': {
+      whiteSpace: 'nowrap',
+      width: '45rem',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
+    },
+
     '& p,& span': {
       color: 'inherit'
     }

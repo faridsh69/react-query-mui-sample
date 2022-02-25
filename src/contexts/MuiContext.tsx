@@ -71,6 +71,21 @@ const MaterialProvider: FC = ({ children }) => {
             position: 'relative'
           },
 
+          '.ellipses-3': {
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: '3',
+            wordBreak: 'break-word',
+            overflow: 'hidden'
+          },
+
+          '.ellipses': {
+            maxWidth: '100%',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden'
+          },
+
           '.padding': {
             paddingRight: '14rem',
             paddingLeft: '14rem',
