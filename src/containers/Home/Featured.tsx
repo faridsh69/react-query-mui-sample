@@ -15,7 +15,7 @@ const FeaturedPodcasts: FC = () => {
         labore et dolore magna aliqua.
       </Typography>
 
-      <PodcastSlider title="Featured Podcasts" />
+      <PodcastSlider items={[]} title="Featured Podcasts" />
     </Stack>
   );
 };

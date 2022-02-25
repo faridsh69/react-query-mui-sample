@@ -3,11 +3,13 @@ import dynamic from 'next/dynamic';
 import Typography from '@mui/material/Typography';
 
 import Carousel from '@components/Carousel';
+import { IPodcast } from '@interfaces/podcast';
 const PodcastCard = dynamic(() => import('@components/PodcastCard'));
 const NewsCard = dynamic(() => import('@components/NewsCard'));
 
 interface MultiSliderProps {
   title: string;
+  items: IPodcast[];
   leftPadding?: boolean;
   type?: 'news' | 'podcast';
 }
@@ -35,29 +37,6 @@ const responsive = {
   }
 };
 
-const TEMP_PODCASTS = [
-  {
-    slug: 'happy-place',
-    image: '/images/poster.png',
-    title: 'The Happy Place',
-    description: 'Seasons 2 • 88 Episodes',
-    isNew: true
-  },
-  {
-    slug: 'happy-place',
-    image: '/images/absolute-mental.jpg',
-    title: 'Absolutely Mental',
-    description: 'Seasons 1 • 120 Episodes'
-  },
-  {
-    slug: 'happy-place',
-    image: '/images/under-the-skin.jpg',
-    title: 'Under The Skin',
-    description: 'Seasons 2 • 88 Episodes',
-    viral: true
-  }
-];
-
 const TEMP_NEWS = [
   {
     slug: 'happy-place',
@@ -75,7 +54,7 @@ const TEMP_NEWS = [
   }
 ];
 
-const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding, type = 'podcast' }) => {
+const MultiSlider: FC<MultiSliderProps> = ({ title, items, leftPadding, type }) => {
   return (
     <div className={`slider ${leftPadding ? 'padding-left' : ''}`}>
       <Typography className="regular" variant="h2" component="p" mb="1.8rem">
@@ -84,7 +63,7 @@ const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding, type = 'podcast
 
       <Carousel draggable={false} responsive={responsive}>
         {type == 'podcast'
-          ? TEMP_PODCASTS.concat(TEMP_PODCASTS).map(p => <PodcastCard key={p.title} {...p} />)
+          ? items.map(p => <PodcastCard key={p.title} podcast={p} />)
           : TEMP_NEWS.concat(TEMP_NEWS)
               .concat(TEMP_NEWS)
               .map(n => <NewsCard key={n.title} {...n} />)}
@@ -94,7 +73,8 @@ const MultiSlider: FC<MultiSliderProps> = ({ title, leftPadding, type = 'podcast
 };
 
 MultiSlider.defaultProps = {
-  leftPadding: true
+  leftPadding: true,
+  type: 'podcast'
 };
 
 export default MultiSlider;

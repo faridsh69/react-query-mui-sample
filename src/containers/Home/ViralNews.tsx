@@ -11,7 +11,7 @@ const Root = styled('div')(() => ({
 const ViralNews: FC = () => {
   return (
     <Root>
-      <NewsSlider type="news" title="Viral Tribe News" />
+      <NewsSlider items={[]} type="news" title="Viral Tribe News" />
     </Root>
   );
 };

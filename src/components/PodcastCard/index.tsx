@@ -7,40 +7,37 @@ import Typography from '@mui/material/Typography';
 
 import NewBadge from '@components/NewBadge';
 import { useStyles } from './styles';
+import { IPodcast } from '@interfaces/podcast';
 
 interface PodcastCardProps {
-  title: string;
-  description: string;
-  image: string;
-  slug: string;
-  viral?: boolean;
-  isNew?: boolean;
+  podcast: IPodcast;
 }
 
-const PodcastCard: FC<PodcastCardProps> = ({ title, description, image, slug, viral, isNew }) => {
+const PodcastCard: FC<PodcastCardProps> = ({ podcast: { image, title, itunes } }) => {
   const { classes } = useStyles();
 
   return (
-    <Link href={`/shows/${slug}`} passHref>
+    <Link href={`/shows/happy-place`} passHref>
       <Card component="a" className={`card ${classes.root}`}>
-        <NewBadge position="top-left" display={isNew}>
+        <NewBadge position="top-left" display={false}>
           <figure className={classes.figure}>
-            <Image src={image} alt={title} layout="fill" />
+            <Image src={image.url} alt={title} layout="fill" />
           </figure>
         </NewBadge>
 
         <CardContent className={classes.content}>
-          {viral && (
+          {false && (
             <Typography variant="subtitle1" color="primary">
               <span className={classes.vp}>V+</span>
               <strong>New Episodes First</strong>
             </Typography>
           )}
-          <Typography variant="h5" component="p">
+          <Typography className="ellipses" variant="h5" component="p">
             {title}
           </Typography>
           <Typography variant="subtitle1" className="regular">
-            {description}
+            {`${itunes.season ? `Season ${itunes.season} . ` : ''}`}
+            {`${itunes.episode ? `${itunes.episode} Episodes` : ''}`}
           </Typography>
         </CardContent>
       </Card>

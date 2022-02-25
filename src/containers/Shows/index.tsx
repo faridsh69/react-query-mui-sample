@@ -19,7 +19,7 @@ const ShowsContainer: FC = () => {
   return (
     <>
       <HeaderSlider>
-        {podcasts.map(p => (
+        {podcasts.slice(0, 3).map(p => (
           <BlurBackground key={p.title} size="md" transparent="true" img={p.image.url}>
             <Stack direction="row" spacing={5} flex="1" pt="2rem" position="relative">
               <Stack direction="column" spacing={1} flex="1" className={classes.infoBox}>
@@ -31,7 +31,7 @@ const ShowsContainer: FC = () => {
                   {p.itunes.categories?.[0]?.name || ''}
                 </Typography>
 
-                <Typography>{p.description}</Typography>
+                <Typography className="ellipses-3">{p.description}</Typography>
 
                 <Button variant="contained" color="primary">
                   PLAY TRAILER
@@ -51,9 +51,9 @@ const ShowsContainer: FC = () => {
       </Stack>
 
       <Stack direction="column" spacing={0} className={classes.panel}>
-        <PodcastSlider title="Popular on Viral Tribe" />
-        <PodcastSlider title="Top 10 in the UK today" />
-        <PodcastSlider title="Exclusive to Viral Tribe" />
+        <PodcastSlider items={podcasts} title="Popular on Viral Tribe" />
+        <PodcastSlider items={podcasts} title="Top 10 in the UK today" />
+        <PodcastSlider items={podcasts} title="Exclusive to Viral Tribe" />
       </Stack>
     </>
   );
