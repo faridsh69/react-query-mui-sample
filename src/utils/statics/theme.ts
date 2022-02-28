@@ -1,5 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
+import { Color } from '@interfaces/general';
+
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
     xs: false;
@@ -38,7 +40,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: '1.6rem',
-          fontFamily: 'inherit',
+          fontFamily: 'Montserrat',
           color: 'var(--color-secondary-dark)',
           lineHeight: 1.5
         },
@@ -66,7 +68,11 @@ export const theme = createTheme({
         },
         h4: {
           fontSize: '2.5rem',
-          color: 'inherit'
+          color: 'inherit',
+
+          '&.medium': {
+            fontWeight: 500
+          }
         },
         h5: {
           fontSize: '2rem',
@@ -111,6 +117,14 @@ export const theme = createTheme({
         }
       }
     },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontWeight: 500,
+          color: Color.SEC_MAIN
+        }
+      }
+    },
     MuiInputBase: {
       styleOverrides: {
         input: {
@@ -123,6 +137,13 @@ export const theme = createTheme({
             fontSize: '1.6rem',
             opacity: 1
           }
+        }
+      }
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Montserrat'
         }
       }
     },
@@ -223,6 +244,34 @@ export const theme = createTheme({
           maxWidth: '100%',
           maxHeight: '100%',
           margin: 0
+        }
+      }
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Montserrat',
+          textTransform: 'initial',
+          fontSize: '1.6rem',
+          fontWeight: 400,
+
+          '&.custom-tab': {
+            '& .MuiTabs-indicator': {
+              height: 5,
+              backgroundColor: Color.SEC_DARK
+            },
+
+            '& button.MuiTab-root': {
+              color: Color.SEC_MAIN,
+              opacity: 0.5,
+              fontWeight: 500,
+
+              '&.Mui-selected': {
+                color: Color.SEC_DARK,
+                opacity: 1
+              }
+            }
+          }
         }
       }
     },
