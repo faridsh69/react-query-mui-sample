@@ -13,11 +13,11 @@ interface PodcastCardProps {
   podcast: IPodcast;
 }
 
-const PodcastCard: FC<PodcastCardProps> = ({ podcast: { image, title, itunes } }) => {
+const PodcastCard: FC<PodcastCardProps> = ({ podcast: { image, title, itunes, slug } }) => {
   const { classes } = useStyles();
 
   return (
-    <Link href={`/shows/happy-place`} passHref>
+    <Link href={`/shows/${slug}`} passHref>
       <Card component="a" className={`card ${classes.root}`}>
         <NewBadge position="top-left" display={false}>
           <figure className={classes.figure}>

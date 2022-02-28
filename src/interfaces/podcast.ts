@@ -17,6 +17,7 @@ export interface Itunes {
 
 export interface IPodcast {
   title: string;
+  slug: string;
   description: string;
   image: PodcastImage;
   itunes: Itunes;
