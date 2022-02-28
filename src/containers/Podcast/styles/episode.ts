@@ -33,15 +33,5 @@ export const useStyles = makeStyles()(() => ({
     '& > svg': {
       marginRight: '0.5rem'
     }
-  },
-  iconBox: {
-    color: 'var(--color-grey-dark)',
-    fontSize: '1.4rem',
-    marginRight: '1rem',
-
-    '& > svg': {
-      fill: 'currentColor',
-      margin: '0 0.5rem'
-    }
   }
 }));
