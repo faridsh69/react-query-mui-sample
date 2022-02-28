@@ -2,7 +2,7 @@ import { makeStyles } from 'tss-react/mui';
 
 import { Color } from '@interfaces/general';
 
-export const useStyles = makeStyles()(() => ({
+export const useStyles = makeStyles()(theme => ({
   figure: {
     minWidth: '44.4rem',
     maxWidth: '44.4rem',
@@ -24,9 +24,13 @@ export const useStyles = makeStyles()(() => ({
 
     '& > p:first-of-type': {
       whiteSpace: 'nowrap',
-      width: '45rem',
+      maxWidth: '50rem',
       overflow: 'hidden',
-      textOverflow: 'ellipsis'
+      textOverflow: 'ellipsis',
+
+      [theme.breakpoints.up('bigDesktop')]: {
+        maxWidth: '75rem'
+      }
     },
 
     '& p,& span': {
