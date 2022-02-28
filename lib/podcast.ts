@@ -1,6 +1,7 @@
 import viralTribeAPI from '@api/viralTribeAPI';
 
 import { Params } from '@interfaces/general';
+import { IEpisode } from '@interfaces/episode';
 import { IPodcast } from '@interfaces/podcast';
 
 const INITIAL_PARAMS = {
@@ -10,6 +11,14 @@ const INITIAL_PARAMS = {
 export const getPodcasts = async (params: Params = INITIAL_PARAMS): Promise<IPodcast[]> => {
   const { data } = await viralTribeAPI.get('/podcasts', { params });
   return data?.data?.podcasts;
+};
+
+export const getPodcastEpisodes = async (
+  podcastId: string,
+  params?: Params
+): Promise<IEpisode[]> => {
+  const { data } = await viralTribeAPI.get(`/podcasts/${podcastId}/episodes`, { params });
+  return data?.data?.episodes;
 };
 
 export const getPodcastBySlug = async (slug: string): Promise<IPodcast | undefined> => {
