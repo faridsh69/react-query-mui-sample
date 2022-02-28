@@ -71,6 +71,10 @@ const MaterialProvider: FC = ({ children }) => {
             position: 'relative'
           },
 
+          '.rotate': {
+            transform: 'rotate(180deg)'
+          },
+
           '.ellipses-3': {
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
