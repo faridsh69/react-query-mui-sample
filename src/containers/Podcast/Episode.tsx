@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar';
 
 import { SVG } from '@assets/icons/svgIcons';
 import NewBadge from '@components/NewBadge';
+import PlaysComments from '@components/PlaysComments';
 import { useStyles } from './styles/episode';
 
 const Episode: FC = () => {
@@ -56,23 +57,15 @@ const Episode: FC = () => {
           alignItems="center"
           alignSelf="stretch"
         >
-          <Stack direction="row" alignItems="center" spacing={0.5}>
+          <Stack direction="row" alignItems="center" spacing={0}>
             <IconButton>
               <SVG id="play" />
             </IconButton>
-            <Typography sx={{ fontWeight: 700 }} color="primary">
+            <Typography sx={{ fontWeight: 700, marginRight: '1rem' }} color="primary">
               PLAY
             </Typography>
 
-            <div className={classes.iconBox}>
-              <SVG id="comment" />
-              <span>7</span>
-            </div>
-
-            <div className={classes.iconBox}>
-              <SVG id="play-arrow" />
-              <span>10k</span>
-            </div>
+            <PlaysComments comments={7} plays={10} />
           </Stack>
           <Badge
             overlap="circular"
