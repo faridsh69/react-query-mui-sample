@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import { dehydrate } from 'react-query';
 
 import ShowsContainer from '@containers/Shows';
@@ -12,7 +12,7 @@ const ShowsPage: NextPage = () => (
   </HeadWrapper>
 );
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery(queryKeys.podcast.list(), () => getPodcasts());
@@ -22,6 +22,6 @@ export async function getStaticProps() {
       dehydratedState: dehydrate(queryClient)
     }
   };
-}
+};
 
 export default ShowsPage;
