@@ -9,25 +9,30 @@ import Badge from '@mui/material/Badge';
 import Chip from '@mui/material/Chip';
 
 import { SVG } from '@assets/icons/svgIcons';
+import { IPodcast } from '@interfaces/podcast';
 import BlurBackground from '@components/BlurBG';
 import Tabs from './Tabs';
 import PodcastPanel from './Panel';
 import { useStyles } from './styles';
 
-const PodcastContainer: FC = () => {
+interface PodcastContainerProps {
+  podcast: IPodcast;
+}
+
+const PodcastContainer: FC<PodcastContainerProps> = ({ podcast }) => {
   const { classes } = useStyles();
 
   return (
     <>
-      <BlurBackground img="/images/poster.png">
+      <BlurBackground img={podcast.image.url}>
         <figure className={classes.figure}>
-          <Image priority src="/images/poster.png" layout="fill" alt="happy-place-podcast" />
+          <Image priority src={podcast.image.url} layout="fill" alt={podcast.title} />
         </figure>
 
         <div className={classes.infoBox}>
           <Stack direction="row" spacing={1} alignItems="center">
-            <Typography variant="h1" mr="0.5rem">
-              The Happy Place
+            <Typography lineHeight="1.3" variant="h1" mr="0.5rem">
+              {podcast.title}
             </Typography>
             <Chip color="primary" label="Claimed" icon={<SVG id="tick" />} />
 
@@ -35,12 +40,9 @@ const PodcastContainer: FC = () => {
           </Stack>
 
           <Typography mb={1} variant="caption">
-            Health & Fitness
+            {podcast.itunes.categories?.[0]?.name || ''}
           </Typography>
-          <Typography>
-            Fearne Cotton talks to incredible people about life, love, loss, and everything
-            in-between as she reveals what happiness means to them.
-          </Typography>
+          <Typography className="ellipses-3">{podcast.description}</Typography>
 
           <Button aria-label="underline" color="secondary">
             Read more
