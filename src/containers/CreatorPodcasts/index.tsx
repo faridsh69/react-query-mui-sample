@@ -3,12 +3,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Stack from '@mui/material/Stack';
 
-import { usePodcasts } from '@hooks/usePodcasts';
 import PodcastTable from '@components/PodcastTable';
 
-const ShowsContainer: FC = () => {
+const PodcastsContainer: FC = () => {
   const [value] = useState(0);
-  const [podcasts] = usePodcasts();
 
   return (
     <>
@@ -19,10 +17,10 @@ const ShowsContainer: FC = () => {
       </Stack>
 
       <Stack pt="4rem" className="padding" direction="column" spacing={2}>
-        <PodcastTable podcasts={podcasts} />
+        <PodcastTable />
       </Stack>
     </>
   );
 };
 
-export default ShowsContainer;
+export default PodcastsContainer;
