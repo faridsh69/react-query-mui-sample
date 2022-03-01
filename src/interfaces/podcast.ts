@@ -13,6 +13,7 @@ export interface Itunes {
   categories?: Category[];
   season?: number;
   episode?: number;
+  duration?: string;
 }
 
 export interface IPodcast {
