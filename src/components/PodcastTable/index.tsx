@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -8,15 +8,32 @@ import TableContainer from '@mui/material/TableContainer';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 
-import { IPodcast } from '@interfaces/podcast';
+import { usePodcasts } from '@hooks/usePodcasts';
 import Select from '@components/Select';
 import Row from './Row';
 
-interface PodcastTableProps {
-  podcasts: IPodcast[];
-}
+const PodcastTable: FC = () => {
+  const [selected, setSelected] = useState<string[]>([]);
+  const [podcasts] = usePodcasts();
 
-const PodcastTable: FC<PodcastTableProps> = ({ podcasts }) => {
+  const handleSelectAllClick = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    if (evt.target.checked) {
+      setSelected(podcasts.map(p => p._id));
+      return;
+    }
+    setSelected([]);
+  };
+
+  const handleRowClick = (id: string) => {
+    const selectedIndex = selected.indexOf(id);
+
+    if (selectedIndex === -1) {
+      return setSelected(selected.concat(id));
+    }
+
+    setSelected(selected.filter(s => s !== id));
+  };
+
   return (
     <>
       <Stack direction="row" justifyContent="space-between">
@@ -38,7 +55,17 @@ const PodcastTable: FC<PodcastTableProps> = ({ podcasts }) => {
       </Stack>
 
       <Stack direction="row" spacing={1}>
-        <FormControlLabel control={<Checkbox color="primary" />} label="Select All" />
+        <FormControlLabel
+          control={
+            <Checkbox
+              color="primary"
+              onChange={handleSelectAllClick}
+              indeterminate={selected.length > 0 && selected.length < podcasts.length}
+              checked={podcasts.length > 0 && selected.length === podcasts.length}
+            />
+          }
+          label="Select All"
+        />
 
         <Select options={[{ label: 'Archive', value: 'archive' }]} value="archive" />
       </Stack>
@@ -47,7 +74,12 @@ const PodcastTable: FC<PodcastTableProps> = ({ podcasts }) => {
         <Table>
           <TableBody>
             {podcasts.map(pod => (
-              <Row key={pod._id} podcast={pod} isSelected={false} />
+              <Row
+                key={pod._id}
+                podcast={pod}
+                isSelected={selected.includes(pod._id)}
+                onRowChange={handleRowClick}
+              />
             ))}
           </TableBody>
         </Table>

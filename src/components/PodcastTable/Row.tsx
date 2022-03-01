@@ -19,10 +19,10 @@ import { Color } from '@interfaces/general';
 interface PodcastTableRowProps {
   podcast: IPodcast;
   isSelected: boolean;
-  onRowSelect?: (rowId: string) => void;
+  onRowChange: (rowId: string) => void;
 }
 
-const PodcastTableRow: FC<PodcastTableRowProps> = ({ podcast, isSelected }) => {
+const PodcastTableRow: FC<PodcastTableRowProps> = ({ podcast, isSelected, onRowChange }) => {
   const [open, setOpen] = useState(false);
   const [episodes] = usePodcastEpisodes(podcast._id, open);
 
@@ -30,7 +30,12 @@ const PodcastTableRow: FC<PodcastTableRowProps> = ({ podcast, isSelected }) => {
     <>
       <TableRow>
         <TableCell padding="none" width={10}>
-          <Checkbox sx={{ transform: 'translateX(-9px)' }} color="primary" checked={isSelected} />
+          <Checkbox
+            sx={{ transform: 'translateX(-9px)' }}
+            color="primary"
+            checked={isSelected}
+            onChange={onRowChange.bind(null, podcast._id)}
+          />
         </TableCell>
         <TableCell sx={{ paddingLeft: '0' }}>
           <figure style={{ display: 'flex', alignItems: 'center' }}>
@@ -85,7 +90,7 @@ const PodcastTableRow: FC<PodcastTableRowProps> = ({ podcast, isSelected }) => {
                     <TableCell sx={{ paddingRight: '9px' }}>
                       <Stack direction="row-reverse" spacing={8}>
                         <Typography>9 months ago</Typography>
-                        <Typography>59:30</Typography>
+                        <Typography>{ep.itunes.duration || '---'}</Typography>
                       </Stack>
                     </TableCell>
                     <TableCell />
