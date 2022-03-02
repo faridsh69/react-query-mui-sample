@@ -55,7 +55,13 @@ const MaterialProvider: FC = ({ children }) => {
             color: Color.SEC_DARK,
             padding: '0 !important',
             fontWeight: 500,
-            lineHeight: 1.6
+            lineHeight: 1.6,
+
+            '& label': {
+              color: Color.SEC_MAIN,
+              fontSize: '1.6rem',
+              marginBottom: '0.6rem'
+            }
           },
           a: {
             textDecoration: 'none',

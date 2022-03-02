@@ -4,11 +4,6 @@ import { Color } from '@interfaces/general';
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
-    xs: false;
-    sm: false;
-    md: false;
-    lg: false;
-    xl: false;
     mobile: true;
     tablet: true;
     laptop: true;
@@ -20,6 +15,11 @@ declare module '@mui/material/styles' {
 export const theme = createTheme({
   breakpoints: {
     values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
       mobile: 0,
       tablet: 640,
       laptop: 1024,
@@ -140,18 +140,27 @@ export const theme = createTheme({
         }
       }
     },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          fontFamily: 'Montserrat'
-        }
-      }
-    },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
           borderWidth: 2,
           borderColor: 'var(--color-secondary-main)'
+        }
+      }
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '&.sm-pd input': {
+            padding: '1rem 1.4rem'
+          }
+        }
+      }
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Montserrat'
         }
       }
     },
@@ -194,6 +203,10 @@ export const theme = createTheme({
           '&:hover': {
             borderWidth: 2
           }
+        },
+
+        sizeLarge: {
+          fontSize: '1.8rem'
         }
       }
     },
