@@ -16,7 +16,7 @@ const PodcastsContainer: FC = () => {
         </Tabs>
       </Stack>
 
-      <Stack pt="4rem" className="padding" direction="column" spacing={2}>
+      <Stack pt="4rem" pb="4rem" className="padding" direction="column" spacing={2}>
         <PodcastTable />
       </Stack>
     </>
