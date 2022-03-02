@@ -48,10 +48,22 @@ const PodcastTable: FC = () => {
 
   return (
     <>
-      <Stack direction="row" justifyContent="space-between">
-        <Typography variant="h2">Podcasts</Typography>
+      <Stack direction="row">
+        <Typography mr="auto" variant="h2">
+          Podcasts
+        </Typography>
 
-        <Button color="primary" variant="contained" onClick={handleEditClick}>
+        <Button
+          sx={{ marginRight: '2rem' }}
+          size="large"
+          color="primary"
+          variant="contained"
+          onClick={handleEditClick}
+        >
+          Add Podcast
+        </Button>
+
+        <Button size="large" color="primary" variant="contained" onClick={handleEditClick}>
           Edit Podcast
         </Button>
       </Stack>
