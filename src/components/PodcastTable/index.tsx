@@ -9,12 +9,24 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 
 import { usePodcasts } from '@hooks/usePodcasts';
+import { useDialog } from '@hooks/useDialog';
+import PodcastForm from '@components/PodcastForm';
 import Select from '@components/Select';
 import Row from './Row';
 
 const PodcastTable: FC = () => {
   const [selected, setSelected] = useState<string[]>([]);
   const [podcasts] = usePodcasts();
+  const [openDialog, closeDialog] = useDialog();
+
+  const handleEditClick = () => {
+    if (selected.length !== 1) return;
+
+    openDialog({
+      fullScreen: true,
+      content: <PodcastForm onCancel={closeDialog} />
+    });
+  };
 
   const handleSelectAllClick = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (evt.target.checked) {
@@ -39,7 +51,7 @@ const PodcastTable: FC = () => {
       <Stack direction="row" justifyContent="space-between">
         <Typography variant="h2">Podcasts</Typography>
 
-        <Button color="primary" variant="contained">
+        <Button color="primary" variant="contained" onClick={handleEditClick}>
           Edit Podcast
         </Button>
       </Stack>
