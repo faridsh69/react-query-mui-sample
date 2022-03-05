@@ -6,7 +6,14 @@ const nextConfig = {
     API_URL: process.env.API_URL
   },
   images: {
-    domains: ['thumborcdn.acast.com', 'storage.buzzsprout.com']
+    domains: [
+      'ssl-static.libsyn.com',
+      'assets.pippa.io',
+      'image.ausha.co',
+      'thumborcdn.acast.com',
+      'storage.buzzsprout.com',
+      'd3wo5wojvuv7l.cloudfront.net'
+    ]
   }
 };
 
