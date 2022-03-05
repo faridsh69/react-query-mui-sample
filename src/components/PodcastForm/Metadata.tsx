@@ -3,8 +3,11 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
 
 import Select from '@components/Select';
+import Switch from '@components/Switch';
+import { SVG } from '@assets/icons/svgIcons';
 
 const PodcastMetaData: FC = () => {
   return (
@@ -46,6 +49,30 @@ const PodcastMetaData: FC = () => {
           <FormControl fullWidth variant="standard">
             <label htmlFor="frq-input">Frequency</label>
             <TextField className="sm-pd" id="frq-input" />
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={4}>
+          <FormControl fullWidth variant="standard">
+            <label>Locked</label>
+            <Switch />
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={4}>
+          <FormControl fullWidth variant="standard">
+            <Stack direction="row" spacing={2}>
+              <label>Value for Value</label>
+              <SVG id="sats" />
+            </Stack>
+            <Switch />
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={4}>
+          <FormControl fullWidth variant="standard">
+            <label>Explicit</label>
+            <Switch />
           </FormControl>
         </Grid>
       </Grid>

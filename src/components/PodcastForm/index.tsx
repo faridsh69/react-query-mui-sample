@@ -21,7 +21,11 @@ const StyledTab = styled(Tab)({
   }
 });
 
-const PodcastForm: FC = () => {
+interface PodcastFormProps {
+  onCancel: VoidFunction;
+}
+
+const PodcastForm: FC<PodcastFormProps> = ({ onCancel }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -29,7 +33,7 @@ const PodcastForm: FC = () => {
   };
 
   return (
-    <Stack pt="4rem" pb="4rem" className="padding" direction="column">
+    <Stack pt="4rem" pb="4rem" className="padding" direction="column" zIndex="1">
       <Tabs value={value} onChange={handleChange}>
         <StyledTab label="Basic info" />
         <StyledTab label="Metadata" />
@@ -53,7 +57,7 @@ const PodcastForm: FC = () => {
         <Button variant="contained" color="primary" size="large">
           Save
         </Button>
-        <Button color="secondary" size="large">
+        <Button color="secondary" size="large" onClick={onCancel}>
           Cancel
         </Button>
       </Stack>

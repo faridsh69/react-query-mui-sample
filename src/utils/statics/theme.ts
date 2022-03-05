@@ -257,6 +257,9 @@ export const theme = createTheme({
           maxWidth: '100%',
           maxHeight: '100%',
           margin: 0
+        },
+        paperFullScreen: {
+          background: Color.WHITE
         }
       }
     },

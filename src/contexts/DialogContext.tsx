@@ -6,6 +6,7 @@ export type BackdropVariant = 'light' | 'dark';
 interface DialogProps {
   content: ReactNode;
   open: boolean;
+  fullScreen?: boolean;
   backdrop?: BackdropVariant;
   onClose?: VoidFunction;
   onExited?: VoidFunction;
@@ -56,9 +57,10 @@ const DialogProvider: FC = ({ children }) => {
   return (
     <DialogContext.Provider value={contextValue}>
       {children}
-      {dialogs.map(({ open, content, onExited, backdrop = 'dark' }, i) => (
+      {dialogs.map(({ open, content, onExited, fullScreen = false, backdrop = 'dark' }, i) => (
         <Dialog
           key={i}
+          fullScreen={fullScreen}
           open={open}
           onClose={handleClose}
           TransitionProps={{ onExited: handleKill.bind(null, onExited) }}
