@@ -10,6 +10,7 @@ import TableBody from '@mui/material/TableBody';
 
 import { usePodcasts } from '@hooks/usePodcasts';
 import { useDialog } from '@hooks/useDialog';
+import { useSnackbar } from '@hooks/useSnackbar';
 import PodcastForm from '@components/PodcastForm';
 import Select from '@components/Select';
 import Row from './Row';
@@ -18,9 +19,18 @@ const PodcastTable: FC = () => {
   const [selected, setSelected] = useState<string[]>([]);
   const [podcasts] = usePodcasts();
   const [openDialog, closeDialog] = useDialog();
+  const [openSnackbar] = useSnackbar();
 
   const handleEditClick = () => {
-    if (selected.length !== 1) return;
+    if (selected.length > 1) {
+      openSnackbar('Please select only one Podcast for edit', 'warning');
+      return;
+    }
+
+    if (!selected.length) {
+      openSnackbar('Please select one Podcast for edit', 'warning');
+      return;
+    }
 
     openDialog({
       fullScreen: true,

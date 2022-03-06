@@ -8,6 +8,7 @@ import { Hydrate, QueryClientProvider } from 'react-query';
 import { createEmotionCache, getQueryClient } from '@utils/helpers';
 import MuiProvider from '@contexts/MuiContext';
 import DialogProvider from '@contexts/DialogContext';
+import SnackbarProvider from '@contexts/SnackbarContext';
 import MainLayout from '@layouts/index';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -28,14 +29,16 @@ function MyApp(props: MyAppProps) {
       </Head>
       <MuiProvider>
         <DialogProvider>
-          <QueryClientProvider client={queryClient}>
-            <Hydrate state={pageProps.dehydratedState}>
-              <MainLayout>
-                <Component {...pageProps} />
-              </MainLayout>
-              <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
-            </Hydrate>
-          </QueryClientProvider>
+          <SnackbarProvider>
+            <QueryClientProvider client={queryClient}>
+              <Hydrate state={pageProps.dehydratedState}>
+                <MainLayout>
+                  <Component {...pageProps} />
+                </MainLayout>
+                <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
+              </Hydrate>
+            </QueryClientProvider>
+          </SnackbarProvider>
         </DialogProvider>
       </MuiProvider>
     </CacheProvider>
