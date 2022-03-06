@@ -37,8 +37,8 @@ const SnackbarProvider: FC = ({ children }) => {
     setSnackbarProps({ ...defaultSnackbarProps, open: false });
   };
 
-  const openSnackbar = (message: string, status: AlertColor = 'info') => {
-    setSnackbarProps({ message, status, open: true });
+  const openSnackbar = (opt: SnackbarOption) => {
+    setSnackbarProps({ ...opt, open: true });
   };
 
   const contextValue: SnackbarContextType = useMemo(() => [openSnackbar] as const, []);

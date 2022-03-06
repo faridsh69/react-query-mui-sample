@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import TabPanel from '@components/TabPanel';
 import BasicInfo from './BasicInfo';
 import Metadata from './Metadata';
+import { IPodcast } from '@interfaces/podcast';
 
 const StyledTab = styled(Tab)({
   fontSize: '2.5rem',
@@ -22,45 +23,55 @@ const StyledTab = styled(Tab)({
 });
 
 interface PodcastFormProps {
+  podcast?: IPodcast;
   onCancel: VoidFunction;
 }
 
-const PodcastForm: FC<PodcastFormProps> = ({ onCancel }) => {
+const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const title = event.currentTarget.titleInput.value;
+    const description = event.currentTarget.description.value;
+    console.log(title, description);
+  };
+
   return (
     <Stack pt="4rem" pb="4rem" className="padding" direction="column" zIndex="1">
-      <Tabs value={value} onChange={handleChange}>
-        <StyledTab label="Basic info" />
-        <StyledTab label="Metadata" />
-        {/* <StyledTab label="Chapters" />
+      <form onSubmit={handleSubmit}>
+        <Tabs value={value} onChange={handleChange}>
+          <StyledTab label="Basic info" />
+          <StyledTab label="Metadata" />
+          {/* <StyledTab label="Chapters" />
         <StyledTab label="Soundbite" />
         <StyledTab label="Transcript" /> */}
-      </Tabs>
-      <Divider sx={{ marginBottom: '3rem' }} />
+        </Tabs>
+        <Divider sx={{ marginBottom: '3rem' }} />
 
-      <TabPanel value={value} index={0}>
-        <BasicInfo />
-      </TabPanel>
+        <TabPanel value={value} index={0}>
+          <BasicInfo podcast={podcast} />
+        </TabPanel>
 
-      <TabPanel value={value} index={1}>
-        <Metadata />
-      </TabPanel>
+        <TabPanel value={value} index={1}>
+          <Metadata />
+        </TabPanel>
 
-      <Divider sx={{ marginTop: '4rem' }} />
+        <Divider sx={{ marginTop: '4rem' }} />
 
-      <Stack direction="row-reverse" pt="2rem" spacing={3}>
-        <Button variant="contained" color="primary" size="large">
-          Save
-        </Button>
-        <Button color="secondary" size="large" onClick={onCancel}>
-          Cancel
-        </Button>
-      </Stack>
+        <Stack direction="row-reverse" pt="2rem" spacing={3}>
+          <Button variant="contained" color="primary" size="large" type="submit">
+            Save
+          </Button>
+          <Button color="secondary" size="large" onClick={onCancel}>
+            Cancel
+          </Button>
+        </Stack>
+      </form>
     </Stack>
   );
 };

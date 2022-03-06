@@ -21,17 +21,30 @@ const PodcastTable: FC = () => {
   const [openDialog, closeDialog] = useDialog();
   const [openSnackbar] = useSnackbar();
 
-  const handleEditClick = () => {
+  const handleEditClick = (): void => {
     if (selected.length > 1) {
-      openSnackbar('Please select only one Podcast for edit', 'warning');
+      openSnackbar({
+        message: 'Please select only one Podcast for edit',
+        status: 'warning'
+      });
       return;
     }
 
     if (!selected.length) {
-      openSnackbar('Please select one Podcast for edit', 'warning');
+      openSnackbar({
+        message: 'Please select one Podcast for edit.',
+        status: 'warning'
+      });
       return;
     }
+    const podcast = podcasts.find(pod => pod._id === selected[0]);
+    openDialog({
+      fullScreen: true,
+      content: <PodcastForm podcast={podcast} onCancel={closeDialog} />
+    });
+  };
 
+  const handleAddClick = (): void => {
     openDialog({
       fullScreen: true,
       content: <PodcastForm onCancel={closeDialog} />
@@ -66,9 +79,9 @@ const PodcastTable: FC = () => {
         <Button
           sx={{ marginRight: '2rem' }}
           size="large"
-          color="primary"
+          color="success"
           variant="contained"
-          onClick={handleEditClick}
+          onClick={handleAddClick}
         >
           Add Podcast
         </Button>

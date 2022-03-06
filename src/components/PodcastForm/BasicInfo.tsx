@@ -6,8 +6,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import Select from '@components/Select';
+import { IPodcast } from '@interfaces/podcast';
 
-const PodcastBasicInfo: FC = () => {
+interface PodcastBasicInfoProps {
+  podcast?: IPodcast;
+}
+
+const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast }) => {
   return (
     <Stack direction="row" spacing={3}>
       <Stack direction="column" spacing={2}>
@@ -25,7 +30,12 @@ const PodcastBasicInfo: FC = () => {
       <Stack direction="column" spacing={2} flex="1">
         <FormControl fullWidth variant="standard">
           <label htmlFor="title-input">Title</label>
-          <TextField className="sm-pd" id="title-input" />
+          <TextField
+            name="titleInput"
+            defaultValue={podcast?.title}
+            className="sm-pd"
+            id="title-input"
+          />
         </FormControl>
 
         <FormControl fullWidth variant="standard">
@@ -59,7 +69,14 @@ const PodcastBasicInfo: FC = () => {
 
         <FormControl fullWidth variant="standard">
           <label htmlFor="desc-input">Description</label>
-          <TextField multiline id="desc-input" minRows={7} maxRows={7} />
+          <TextField
+            name="description"
+            defaultValue={podcast?.description}
+            multiline
+            id="desc-input"
+            minRows={7}
+            maxRows={7}
+          />
         </FormControl>
 
         <FormControl fullWidth variant="standard">
