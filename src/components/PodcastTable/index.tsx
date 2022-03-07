@@ -14,12 +14,14 @@ import { useSnackbar } from '@hooks/useSnackbar';
 import PodcastForm from '@components/PodcastForm';
 import Select from '@components/Select';
 import Row from './Row';
+import { useUpdatePodcast } from '@hooks/useUpdatePodcast';
 
 const PodcastTable: FC = () => {
   const [selected, setSelected] = useState<string[]>([]);
   const [podcasts] = usePodcasts();
   const [openDialog, closeDialog] = useDialog();
   const [openSnackbar] = useSnackbar();
+  const updatePodcastMutation = useUpdatePodcast();
 
   const handleEditClick = (): void => {
     if (selected.length > 1) {
@@ -40,7 +42,13 @@ const PodcastTable: FC = () => {
     const podcast = podcasts.find(pod => pod._id === selected[0]);
     openDialog({
       fullScreen: true,
-      content: <PodcastForm podcast={podcast} onCancel={closeDialog} />
+      content: (
+        <PodcastForm
+          updatePodcastMutation={updatePodcastMutation}
+          podcast={podcast}
+          onCancel={closeDialog}
+        />
+      )
     });
   };
 

@@ -10,14 +10,15 @@ const _queryErrorHandler = (err: unknown) => {
   console.log('Error ', err);
 };
 
-export const getQueryClient = () =>
-  new QueryClient({
+export const getQueryClient = () => {
+  return new QueryClient({
     defaultOptions: {
       queries: {
         onError: _queryErrorHandler
       }
     }
   });
+};
 
 export const queryKeys = {
   podcast: _getQueryKeys('podcasts'),

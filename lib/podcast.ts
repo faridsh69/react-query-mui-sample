@@ -27,3 +27,8 @@ export const getPodcastBySlug = async (slug: string): Promise<IPodcast | undefin
     return data?.data?.podcast;
   } catch (err) {}
 };
+
+export const patchUpdatePodcast = async (podcast: IPodcast): Promise<IPodcast> => {
+  const { data } = await viralTribeAPI.patch(`/podcasts/${podcast._id}`, podcast);
+  return data?.data;
+};

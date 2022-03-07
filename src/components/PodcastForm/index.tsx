@@ -25,9 +25,12 @@ const StyledTab = styled(Tab)({
 interface PodcastFormProps {
   podcast?: IPodcast;
   onCancel: VoidFunction;
+  updatePodcastMutation: unknown[];
 }
 
-const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel }) => {
+const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel, updatePodcastMutation }) => {
+  const [updatePodcastMutate, updatePodcastStatus, updatePodcastRrror] = updatePodcastMutation;
+  console.log(updatePodcastStatus, updatePodcastRrror);
   const [value, setValue] = useState(0);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -38,7 +41,7 @@ const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel }) => {
     event.preventDefault();
     const title = event.currentTarget.titleInput.value;
     const description = event.currentTarget.description.value;
-    console.log(title, description);
+    updatePodcastMutate({ ...podcast, title, description } as IPodcast);
   };
 
   return (
