@@ -44,9 +44,10 @@ const PodcastTable: FC = () => {
       fullScreen: true,
       content: (
         <PodcastForm
-          updatePodcastMutation={updatePodcastMutation}
           podcast={podcast}
           onCancel={closeDialog}
+          updatePodcastMutation={updatePodcastMutation}
+          openSnackbar={openSnackbar}
         />
       )
     });

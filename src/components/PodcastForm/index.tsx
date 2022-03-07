@@ -10,6 +10,7 @@ import TabPanel from '@components/TabPanel';
 import BasicInfo from './BasicInfo';
 import Metadata from './Metadata';
 import { IPodcast } from '@interfaces/podcast';
+import { UseMutationResult } from 'react-query';
 
 const StyledTab = styled(Tab)({
   fontSize: '2.5rem',
@@ -25,12 +26,16 @@ const StyledTab = styled(Tab)({
 interface PodcastFormProps {
   podcast?: IPodcast;
   onCancel: VoidFunction;
-  updatePodcastMutation: unknown[];
+  updatePodcastMutation: UseMutationResult<IPodcast, unknown, IPodcast, unknown>;
+  openSnackbar: any;
 }
 
-const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel, updatePodcastMutation }) => {
-  const [updatePodcastMutate, updatePodcastStatus, updatePodcastRrror] = updatePodcastMutation;
-  console.log(updatePodcastStatus, updatePodcastRrror);
+const PodcastForm: FC<PodcastFormProps> = ({
+  podcast,
+  onCancel,
+  updatePodcastMutation,
+  openSnackbar
+}) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -41,7 +46,21 @@ const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel, updatePodcastMut
     event.preventDefault();
     const title = event.currentTarget.titleInput.value;
     const description = event.currentTarget.description.value;
-    updatePodcastMutate({ ...podcast, title, description } as IPodcast);
+    updatePodcastMutation.mutate({ ...podcast, title, description } as IPodcast, {
+      onError: (error: any) => {
+        openSnackbar({
+          message: error.message,
+          status: 'error'
+        });
+      },
+      onSuccess: () => {
+        onCancel();
+        openSnackbar({
+          message: 'Podcast updated successfully',
+          status: 'success'
+        });
+      }
+    });
   };
 
   return (
@@ -67,9 +86,13 @@ const PodcastForm: FC<PodcastFormProps> = ({ podcast, onCancel, updatePodcastMut
         <Divider sx={{ marginTop: '4rem' }} />
 
         <Stack direction="row-reverse" pt="2rem" spacing={3}>
-          <Button variant="contained" color="primary" size="large" type="submit">
-            Save
-          </Button>
+          {updatePodcastMutation.status === 'loading' ? (
+            '...loading'
+          ) : (
+            <Button variant="contained" color="primary" size="large" type="submit">
+              Save
+            </Button>
+          )}
           <Button color="secondary" size="large" onClick={onCancel}>
             Cancel
           </Button>
