@@ -1,6 +1,12 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { patchUpdatePodcast } from '@lib/podcast';
+import { queryKeys } from '@utils/helpers';
 
 export const useUpdatePodcast = () => {
-  return useMutation(patchUpdatePodcast);
+  const queryClient = useQueryClient();
+  return useMutation(patchUpdatePodcast, {
+    onSettled: () => {
+      queryClient.invalidateQueries(queryKeys.podcast.list());
+    }
+  });
 };
