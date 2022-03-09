@@ -6,16 +6,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import Select from '@components/Select';
-import { IPodcast } from '@interfaces/podcast';
 import { UseFormRegister } from 'react-hook-form';
 
 interface PodcastBasicInfoProps {
-  podcast?: IPodcast;
   register: UseFormRegister<any>;
   errors: any;
 }
 
-const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast, register, errors }) => {
+const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ register, errors }) => {
   return (
     <Stack direction="row" spacing={3}>
       <Stack direction="column" spacing={2}>
@@ -37,6 +35,7 @@ const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast, register, errors
           helperText={errors.title?.message}
           {...register('title')}
         />
+
         <FormControl fullWidth variant="standard">
           <label htmlFor="sub-input">Sub Title</label>
           <TextField className="sm-pd" id="sub-input" />
@@ -47,10 +46,12 @@ const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast, register, errors
           <TextField className="sm-pd" id="source-input" />
         </FormControl>
 
-        <FormControl fullWidth variant="standard">
-          <label htmlFor="lang-input">Language</label>
-          <TextField className="sm-pd" id="lang-input" />
-        </FormControl>
+        <TextField
+          label="Language"
+          error={!!errors.language}
+          helperText={errors.language?.message}
+          {...register('language')}
+        />
 
         <FormControl fullWidth variant="standard">
           <label>Category</label>
@@ -67,15 +68,16 @@ const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast, register, errors
         </FormControl>
 
         <FormControl fullWidth variant="standard">
-          <label htmlFor="desc-input">Description</label>
+          <label htmlFor="description">Description</label>
           <TextField
-            name="description"
-            defaultValue={podcast?.description}
+            {...register('description')}
+            error={!!errors.description}
             multiline
-            id="desc-input"
+            id="description"
             minRows={7}
             maxRows={7}
           />
+          <p>{errors.description?.message}</p>
         </FormControl>
 
         <FormControl fullWidth variant="standard">

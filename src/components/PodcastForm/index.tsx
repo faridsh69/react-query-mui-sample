@@ -14,6 +14,7 @@ import { UseMutationResult } from 'react-query';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { SnackbarOption } from '@contexts/SnackbarContext';
 
 const StyledTab = styled(Tab)({
   fontSize: '2.5rem',
@@ -30,17 +31,21 @@ interface PodcastFormProps {
   podcast?: IPodcast;
   onCancel: VoidFunction;
   updatePodcastMutation: UseMutationResult<IPodcast, unknown, IPodcast, unknown>;
-  openSnackbar: any;
+  createPodcastMutation: UseMutationResult<IPodcast, unknown, IPodcast, unknown>;
+  openSnackbar: (opt: SnackbarOption) => void;
 }
 
 const PodcastForm: FC<PodcastFormProps> = ({
   podcast,
   onCancel,
   updatePodcastMutation,
+  createPodcastMutation,
   openSnackbar
 }) => {
   const schema = yup.object({
-    title: yup.string().label('Title').required()
+    title: yup.string().label('Title').required(),
+    description: yup.string().label('Description').required(),
+    language: yup.mixed().oneOf(['en', 'fr'])
   });
 
   const {
@@ -50,7 +55,9 @@ const PodcastForm: FC<PodcastFormProps> = ({
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      title: podcast?.title
+      title: podcast?.title,
+      language: podcast?.language,
+      description: podcast?.description
     }
   });
 
@@ -60,21 +67,42 @@ const PodcastForm: FC<PodcastFormProps> = ({
   };
 
   const onSubmit = (data: IPodcast) => {
-    updatePodcastMutation.mutate({ ...podcast, ...data } as IPodcast, {
-      onError: (error: any) => {
-        openSnackbar({
-          message: error.message,
-          status: 'error'
-        });
-      },
-      onSuccess: () => {
-        onCancel();
-        openSnackbar({
-          message: 'Podcast updated successfully',
-          status: 'success'
-        });
-      }
-    });
+    if (podcast) {
+      // Update mode
+      updatePodcastMutation.mutate({ ...podcast, ...data } as IPodcast, {
+        onError: (error: any) => {
+          openSnackbar({
+            message: error.message,
+            status: 'error'
+          });
+        },
+        onSuccess: () => {
+          onCancel();
+          openSnackbar({
+            message: 'Podcast updated successfully',
+            status: 'success'
+          });
+        }
+      });
+    }
+    if (!podcast) {
+      // Create mode
+      createPodcastMutation.mutate({ ...data } as IPodcast, {
+        onError: (error: any) => {
+          openSnackbar({
+            message: error.message,
+            status: 'error'
+          });
+        },
+        onSuccess: () => {
+          onCancel();
+          openSnackbar({
+            message: 'Podcast Created successfully',
+            status: 'success'
+          });
+        }
+      });
+    }
   };
 
   return (
@@ -90,7 +118,7 @@ const PodcastForm: FC<PodcastFormProps> = ({
         <Divider sx={{ marginBottom: '3rem' }} />
 
         <TabPanel value={value} index={0}>
-          <BasicInfo podcast={podcast} register={register} errors={errors} />
+          <BasicInfo register={register} errors={errors} />
         </TabPanel>
 
         <TabPanel value={value} index={1}>
@@ -100,7 +128,8 @@ const PodcastForm: FC<PodcastFormProps> = ({
         <Divider sx={{ marginTop: '4rem' }} />
 
         <Stack direction="row-reverse" pt="2rem" spacing={3}>
-          {updatePodcastMutation.status === 'loading' ? (
+          {updatePodcastMutation.status === 'loading' ||
+          createPodcastMutation.status === 'loading' ? (
             '...loading'
           ) : (
             <Button variant="contained" color="primary" size="large" type="submit">

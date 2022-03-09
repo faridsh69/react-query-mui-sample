@@ -39,7 +39,11 @@ const PodcastTableRow: FC<PodcastTableRowProps> = ({ podcast, isSelected, onRowC
         </TableCell>
         <TableCell sx={{ paddingLeft: '0' }}>
           <figure style={{ display: 'flex', alignItems: 'center' }}>
-            <Image src={podcast.image.url} alt={podcast.title} width={76} height={76} />
+            {podcast.image ? (
+              <Image src={podcast.image.url} alt={podcast.title} width={76} height={76} />
+            ) : (
+              ''
+            )}
 
             <Stack direction="column" spacing={0.5} marginLeft="2rem">
               <Typography sx={{ fontWeight: 700 }}>{podcast.title}</Typography>

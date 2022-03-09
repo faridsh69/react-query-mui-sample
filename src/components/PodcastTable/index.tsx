@@ -15,6 +15,7 @@ import PodcastForm from '@components/PodcastForm';
 import Select from '@components/Select';
 import Row from './Row';
 import { useUpdatePodcast } from '@hooks/useUpdatePodcast';
+import { useCreatePodcast } from '@hooks/useCreatePodcast';
 
 const PodcastTable: FC = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -22,6 +23,7 @@ const PodcastTable: FC = () => {
   const [openDialog, closeDialog] = useDialog();
   const [openSnackbar] = useSnackbar();
   const updatePodcastMutation = useUpdatePodcast();
+  const createPodcastMutation = useCreatePodcast();
 
   const handleEditClick = (): void => {
     if (selected.length > 1) {
@@ -46,6 +48,7 @@ const PodcastTable: FC = () => {
         <PodcastForm
           podcast={podcast}
           onCancel={closeDialog}
+          createPodcastMutation={createPodcastMutation}
           updatePodcastMutation={updatePodcastMutation}
           openSnackbar={openSnackbar}
         />
@@ -56,7 +59,14 @@ const PodcastTable: FC = () => {
   const handleAddClick = (): void => {
     openDialog({
       fullScreen: true,
-      content: <PodcastForm onCancel={closeDialog} />
+      content: (
+        <PodcastForm
+          onCancel={closeDialog}
+          createPodcastMutation={createPodcastMutation}
+          updatePodcastMutation={updatePodcastMutation}
+          openSnackbar={openSnackbar}
+        />
+      )
     });
   };
 

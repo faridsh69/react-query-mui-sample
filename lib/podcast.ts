@@ -32,3 +32,8 @@ export const patchUpdatePodcast = async (podcast: IPodcast): Promise<IPodcast> =
   const { data } = await viralTribeAPI.patch(`/podcasts/${podcast._id}`, podcast);
   return data?.data?.podcast;
 };
+
+export const postCreatePodcast = async (podcast: IPodcast): Promise<IPodcast> => {
+  const { data } = await viralTribeAPI.post(`/podcasts`, podcast);
+  return data?.data?.podcast;
+};

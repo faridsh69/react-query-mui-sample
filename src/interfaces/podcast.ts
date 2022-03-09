@@ -23,4 +23,5 @@ export interface IPodcast {
   description: string;
   image: PodcastImage;
   itunes: Itunes;
+  language: string;
 }

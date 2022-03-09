@@ -12,7 +12,7 @@ const defaultSnackbarProps: SnackbarProps = {
   status: 'info'
 };
 
-type SnackbarOption = Omit<SnackbarProps, 'open'>;
+export type SnackbarOption = Omit<SnackbarProps, 'open'>;
 
 /**
  * The first element is a function for opening a new snackbar.
