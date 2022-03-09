@@ -7,12 +7,15 @@ import Button from '@mui/material/Button';
 
 import Select from '@components/Select';
 import { IPodcast } from '@interfaces/podcast';
+import { UseFormRegister } from 'react-hook-form';
 
 interface PodcastBasicInfoProps {
   podcast?: IPodcast;
+  register: UseFormRegister<any>;
+  errors: any;
 }
 
-const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast }) => {
+const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast, register, errors }) => {
   return (
     <Stack direction="row" spacing={3}>
       <Stack direction="column" spacing={2}>
@@ -28,16 +31,12 @@ const PodcastBasicInfo: FC<PodcastBasicInfoProps> = ({ podcast }) => {
       </Stack>
 
       <Stack direction="column" spacing={2} flex="1">
-        <FormControl fullWidth variant="standard">
-          <label htmlFor="title-input">Title</label>
-          <TextField
-            name="titleInput"
-            defaultValue={podcast?.title}
-            className="sm-pd"
-            id="title-input"
-          />
-        </FormControl>
-
+        <TextField
+          label="Title"
+          error={!!errors.title}
+          helperText={errors.title?.message}
+          {...register('title')}
+        />
         <FormControl fullWidth variant="standard">
           <label htmlFor="sub-input">Sub Title</label>
           <TextField className="sm-pd" id="sub-input" />

@@ -11,6 +11,9 @@ import BasicInfo from './BasicInfo';
 import Metadata from './Metadata';
 import { IPodcast } from '@interfaces/podcast';
 import { UseMutationResult } from 'react-query';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 const StyledTab = styled(Tab)({
   fontSize: '2.5rem',
@@ -36,17 +39,28 @@ const PodcastForm: FC<PodcastFormProps> = ({
   updatePodcastMutation,
   openSnackbar
 }) => {
-  const [value, setValue] = useState(0);
+  const schema = yup.object({
+    title: yup.string().label('Title').required()
+  });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema),
+    defaultValues: {
+      title: podcast?.title
+    }
+  });
+
+  const [value, setValue] = useState(0);
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const title = event.currentTarget.titleInput.value;
-    const description = event.currentTarget.description.value;
-    updatePodcastMutation.mutate({ ...podcast, title, description } as IPodcast, {
+  const onSubmit = (data: IPodcast) => {
+    updatePodcastMutation.mutate({ ...podcast, ...data } as IPodcast, {
       onError: (error: any) => {
         openSnackbar({
           message: error.message,
@@ -65,7 +79,7 @@ const PodcastForm: FC<PodcastFormProps> = ({
 
   return (
     <Stack pt="4rem" pb="4rem" className="padding" direction="column" zIndex="1">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Tabs value={value} onChange={handleChange}>
           <StyledTab label="Basic info" />
           <StyledTab label="Metadata" />
@@ -76,7 +90,7 @@ const PodcastForm: FC<PodcastFormProps> = ({
         <Divider sx={{ marginBottom: '3rem' }} />
 
         <TabPanel value={value} index={0}>
-          <BasicInfo podcast={podcast} />
+          <BasicInfo podcast={podcast} register={register} errors={errors} />
         </TabPanel>
 
         <TabPanel value={value} index={1}>

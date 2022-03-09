@@ -140,6 +140,20 @@ export const theme = createTheme({
         }
       }
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.6rem'
+        }
+      }
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.6rem'
+        }
+      }
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         notchedOutline: {
